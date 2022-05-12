@@ -39,25 +39,25 @@ format-offset =
 
 [colors]
 ; Nord theme ============
-background = #2F343F
-foreground = #f3f4f5
-foreground-active = #f051ea
-occupied = #cccccc
-occupied-active = #6790EB
-active = #5e81ac
-alert = #d08770
-volume-min = #a3be8c
-volume-med = #ebcb8b
-volume-max = #bf616a
+;background = #2F343F
+;foreground = #f3f4f5
+;foreground-active = #f051ea
+;occupied = #cccccc
+;occupied-active = #6790EB
+;active = #5e81ac
+;alert = #d08770
+;volume-min = #a3be8c
+;volume-med = #ebcb8b
+;volume-max = #bf616a
 ; =======================
 
 ; Gotham theme ==========
-; background = #0a0f14
-; foreground = #99d1ce
-; alert = #d26937
-; volume-min = #2aa889
-; volume-med = #edb443
-; volume-max = #c23127
+background = #0a0f14
+foreground = #99d1ce
+alert = #d26937
+volume-min = #2aa889
+volume-med = #edb443
+volume-max = #c23127
 ; =======================
 
 ; INTRCPTR theme ============
