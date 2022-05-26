@@ -18,11 +18,6 @@ super + r
 super + Escape
     xkill
 
-#Keyboard dependent
-#alacritty
-super + KP_Enter
-    alacritty
-
 #################################################################
 # SUPER + SHIFT KEYS
 #################################################################
@@ -30,7 +25,6 @@ super + KP_Enter
 #dmenu
 super + shift + d
 	dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
-
 
 #################################################################
 # CONTROL + ALT KEYS
