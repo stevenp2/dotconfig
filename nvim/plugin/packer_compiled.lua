@@ -69,71 +69,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["Comment.nvim"] = {
-    loaded = true,
-    path = "/Users/steven/.local/share/nvim/site/pack/packer/start/Comment.nvim",
-    url = "https://github.com/numToStr/Comment.nvim"
-  },
-  LuaSnip = {
-    loaded = true,
-    path = "/Users/steven/.local/share/nvim/site/pack/packer/start/LuaSnip",
-    url = "https://github.com/L3MON4D3/LuaSnip"
-  },
-  ["cmp-nvim-lsp"] = {
-    loaded = true,
-    path = "/Users/steven/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
-    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
-  },
-  cmp_luasnip = {
-    loaded = true,
-    path = "/Users/steven/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
-    url = "https://github.com/saadparwaiz1/cmp_luasnip"
-  },
-  ["gitsigns.nvim"] = {
-    loaded = true,
-    path = "/Users/steven/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
-    url = "https://github.com/lewis6991/gitsigns.nvim"
-  },
-  ["indent-blankline.nvim"] = {
-    loaded = true,
-    path = "/Users/steven/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
-    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
-  },
-  ["lualine.nvim"] = {
-    loaded = true,
-    path = "/Users/steven/.local/share/nvim/site/pack/packer/start/lualine.nvim",
-    url = "https://github.com/nvim-lualine/lualine.nvim"
-  },
-  ["nvim-autopairs"] = {
-    loaded = true,
-    path = "/Users/steven/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
-    url = "https://github.com/windwp/nvim-autopairs"
-  },
-  ["nvim-cmp"] = {
-    loaded = true,
-    path = "/Users/steven/.local/share/nvim/site/pack/packer/start/nvim-cmp",
-    url = "https://github.com/hrsh7th/nvim-cmp"
-  },
-  ["nvim-lspconfig"] = {
-    loaded = true,
-    path = "/Users/steven/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
-    url = "https://github.com/neovim/nvim-lspconfig"
-  },
-  ["nvim-treesitter"] = {
-    loaded = true,
-    path = "/Users/steven/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
-    url = "https://github.com/nvim-treesitter/nvim-treesitter"
-  },
-  ["nvim-treesitter-textobjects"] = {
-    loaded = true,
-    path = "/Users/steven/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects",
-    url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
-  },
-  ["onedark.nvim"] = {
-    loaded = true,
-    path = "/Users/steven/.local/share/nvim/site/pack/packer/start/onedark.nvim",
-    url = "https://github.com/mjlbach/onedark.nvim"
-  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/steven/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -144,30 +79,10 @@ _G.packer_plugins = {
     path = "/Users/steven/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  ["telescope-fzf-native.nvim"] = {
+  ["popup.nvim"] = {
     loaded = true,
-    path = "/Users/steven/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
-    url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
-  },
-  ["telescope.nvim"] = {
-    loaded = true,
-    path = "/Users/steven/.local/share/nvim/site/pack/packer/start/telescope.nvim",
-    url = "https://github.com/nvim-telescope/telescope.nvim"
-  },
-  ["vim-fugitive"] = {
-    loaded = true,
-    path = "/Users/steven/.local/share/nvim/site/pack/packer/start/vim-fugitive",
-    url = "https://github.com/tpope/vim-fugitive"
-  },
-  ["vim-gutentags"] = {
-    loaded = true,
-    path = "/Users/steven/.local/share/nvim/site/pack/packer/start/vim-gutentags",
-    url = "https://github.com/ludovicchabant/vim-gutentags"
-  },
-  ["vim-rhubarb"] = {
-    loaded = true,
-    path = "/Users/steven/.local/share/nvim/site/pack/packer/start/vim-rhubarb",
-    url = "https://github.com/tpope/vim-rhubarb"
+    path = "/Users/steven/.local/share/nvim/site/pack/packer/start/popup.nvim",
+    url = "https://github.com/nvim-lua/popup.nvim"
   }
 }
 
