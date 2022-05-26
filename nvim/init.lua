@@ -1,3 +1,6 @@
+require "stevenp2.options"
+-- require "stevenp2.keymaps"
+
 -- Install packer
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 
@@ -32,6 +35,7 @@ require('packer').startup(function(use)
   use 'hrsh7th/cmp-nvim-lsp'
   use 'saadparwaiz1/cmp_luasnip'
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
+  use 'windwp/nvim-autopairs' -- auto pairing
 end)
 
 --Set highlight on search
@@ -229,7 +233,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- Enable the following language servers
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver' }
+local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'rome' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
@@ -313,4 +317,3 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
--- vim: ts=2 sts=2 sw=2 et
