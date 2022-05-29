@@ -72,6 +72,9 @@ return packer.startup(function(use)
   use {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
+
+  -- autopairs
+  use "windwp/nvim-autopairs" -- autopairing of parens, braces, etc.
   }
 
   -- Automatically set up your configuration after cloning packer.nvim
