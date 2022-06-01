@@ -50,6 +50,11 @@ return packer.startup(function(use)
   use "kyazdani42/nvim-tree.lua" -- file explorer
   use "akinsho/bufferline.nvim" -- buffer tabs for nvim
   use "moll/vim-bbye" -- allow for deletion of buffer
+  use {
+    'goolord/alpha-nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' },
+    config = require("stevenp2.alpha")
+    } -- greeter for nvim
 
   -- ColourSchemes
   use "folke/tokyonight.nvim" -- Colourscheme plugin
@@ -83,6 +88,8 @@ return packer.startup(function(use)
 
   -- autopairs
   use "windwp/nvim-autopairs" -- autopairing of parens, braces, etc.
+
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
