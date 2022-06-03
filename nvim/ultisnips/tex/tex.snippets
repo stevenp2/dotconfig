@@ -13,7 +13,7 @@ def env(name):
 endglobal
 
 # 											Template 
-snippet master "master template" 
+snippet master "master" 
 \usepackage[margin=1in, headsep=0.1in]{geometry} 
 \usepackage{amsmath,amsthm,amssymb,amsfonts, fancyhdr, color, graphicx}
 \usepackage{xcolor}
@@ -34,7 +34,7 @@ endsnippet
 
 
 snippet template "Basic template" b
-\documentclass{article}
+\documentclass{report}
 
 \input{../master.tex} % location of master.tex
 
@@ -399,12 +399,6 @@ snippet fig "Figure environment" b
 \end{figure}
 endsnippet
 
-snippet enum "Enumerate" bA
-\begin{enumerate}
-	\item $0
-\end{enumerate}
-endsnippet
-
 snippet item "Itemize" bA
 \begin{itemize}
 	\item $0
@@ -433,10 +427,18 @@ snippet cases "cases" wA
 \end{cases} $0
 endsnippet
 
-snippet note "note" b
-\begin{itemize}%[leftmargin=1em]
+snippet enum "enumerate" b
+\begin{enumerate}[label=\bfseries\tiny\protect\circled{\small\arabic*}]
 	\item $1
-\end{itemize}$0
+\end{enumerate}$0
+endsnippet
+
+snippet note "note" b
+\begin{note}
+	\begin{itemize}
+		\item $1
+	\end{itemize}
+\end{note}$0
 endsnippet
 
 
