@@ -58,13 +58,34 @@ snippet template "Basic template" b
 \end{document}
 endsnippet
 
-# 											Math expressions
+
 context "math()"
-snippet gam "gamma" Ai
-\gamma$0
+snippet OO "regular function" Ai
+\mathcal{O}$0
 endsnippet
 
-snippet NN "n" iA
+context "math()"
+snippet MM "maximal ideal" Ai
+\mathfrak{m}$0
+endsnippet
+
+context "math()"
+snippet Pp "prime ideal" Ai
+\mathfrak{p}$0
+endsnippet
+
+context "math()"
+snippet PP "prime" Ai
+\mathbb{P}$0
+endsnippet
+
+context "math()"
+snippet AA "affine" iA
+\mathbb{A}
+endsnippet
+
+context "math()"
+snippet NN "natural" iA
 \mathbb{N}
 endsnippet
 
@@ -74,8 +95,8 @@ snippet kap "kappa" Ai
 endsnippet
 
 context "math()"
-snippet OO "emptyset" iA
-\O
+snippet empty "emptyset" iA
+\emptyset
 endsnippet
 
 context "math()"
@@ -89,12 +110,12 @@ snippet CC "complex" iA
 endsnippet
 
 context "math()"
-snippet QQ "Q" iA
+snippet QQ "rational" iA
 \mathbb{Q}
 endsnippet
 
 context "math()"
-snippet ZZ "Z" iA
+snippet ZZ "integers" iA
 \mathbb{Z}
 endsnippet
 
@@ -290,8 +311,8 @@ snippet <! "normal" iA
 endsnippet
 
 context "math()"
-snippet <> "inner_poduct" iA
-\langle $1, $2\rangle$0
+snippet <> "angles" iA
+\langle $1 \rangle$0
 endsnippet
 
 context "math()"
@@ -301,12 +322,12 @@ endsnippet
 
 context "math()"
 snippet <-> "leftrightarrow" iA
-\leftrightarrow
+\leftrightarrow$0
 endsnippet
 
 context "math()"
 snippet !> "mapsto" iA
-\mapsto 
+\mapsto$0
 endsnippet
 
 context "math()"
@@ -326,28 +347,27 @@ endsnippet
 
 context "math()"
 snippet subset "subset" Ai
-\subset 
+\subset$0
 endsnippet
 
 context "math()"
-snippet notin "not in " iA
-\not\in 
+snippet not "not" iA
+\not$0
 endsnippet
 
-context "math()"
 context "math()"
 snippet inn "in " iA
-\in 
+\in$0
 endsnippet
 
 context "math()"
 snippet cap "cap" iA
-\cap 
+\cap$0
 endsnippet
 
 context "math()"
 snippet cup "cup" iA
-\cup 
+\cup$0
 endsnippet
 
 context "math()"
@@ -367,7 +387,7 @@ endsnippet
 
 context "math()"
 snippet ds	"display style" iA
-\displaystyle
+\displaystyle$0
 endsnippet
 
 
