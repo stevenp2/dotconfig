@@ -95,7 +95,7 @@ return packer.startup(function(use)
     "lervag/vimtex",
     ft = {
       "tex",
-      "bib"
+      "bib",
     },
   })
 
