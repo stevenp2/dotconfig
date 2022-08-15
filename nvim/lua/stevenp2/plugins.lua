@@ -100,11 +100,6 @@ return packer.startup(function(use)
   })
 
   use({
-    "ludovicchabant/vim-gutentags",
-    ft = { "tex" },
-  })
-
-  use({
    "SirVer/ultisnips",
   })
 
