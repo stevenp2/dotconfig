@@ -12,5 +12,3 @@ require("stevenp2.gitsigns")
 require("stevenp2.nvim-tree")
 require("stevenp2.bufferline")
 
--- lsp stuff
-require("stevenp2.tex.ultisnips")
