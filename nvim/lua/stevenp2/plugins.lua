@@ -76,8 +76,17 @@ return packer.startup(function(use)
   use "neovim/nvim-lspconfig" -- enable lsp
   use "williamboman/nvim-lsp-installer" -- simple lsp installer
 
-  -- Telescipr
-  use "nvim-telescope/telescope.nvim" -- fuzzy finder
+  -- Telescope
+  use({
+    "nvim-telescope/telescope.nvim", -- fuzzy finder
+    requires = {
+      { "kdheepak/lazygit.nvim" }, -- running lazygit in nvim
+      { "nvim-lua/plenary.nvim" } -- Useful lua functions used ny lots of plugins
+    },
+    config = function()
+        require("telescope").load_extension("lazygit")
+      end,
+    })
   use "nvim-telescope/telescope-media-files.nvim" -- view media in telescope
 
   -- Treesitter
