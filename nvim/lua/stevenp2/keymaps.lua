@@ -79,4 +79,4 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
 -- Lazygit
-keymap("n", "<leader>gg", ":LazyGit<cr>", opts)
+keymap("n", "<leader>g", ":LazyGit<cr>", opts)
