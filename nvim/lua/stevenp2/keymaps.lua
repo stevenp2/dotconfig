@@ -29,6 +29,9 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 -- clear highlithgint
 keymap("n", "<esc><esc>", ":noh<return>", opts)
 
+-- rename
+keymap("n", "<leader>r", ":Lspsaga rename<CR>", opts)
+
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
 keymap("n", "<C-Down>", ":resize -2<CR>", opts)
