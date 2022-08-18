@@ -61,7 +61,7 @@ keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 -- paste not copy
 keymap("v", "p", '"_dP', opts)
 -- yank cursor stay 
-keymap("v", "y", "ygv<ESC", opts)
+keymap("v", "y", "ygv<ESC>", opts)
 
 -- Visual Block --
 -- Move text up and down
