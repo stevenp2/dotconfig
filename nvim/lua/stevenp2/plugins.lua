@@ -75,7 +75,7 @@ return packer.startup(function(use)
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
-  -- urlview - a special plugin that gets to take up a lot of space
+  -- urlview - a special plugin that gets to take up a lot of space derp
   use {"axieax/urlview.nvim",
     config = function()
       require("urlview").setup({
