@@ -19,11 +19,10 @@ return function()
     dashboard.button("n", "  New File", "<Cmd>ene <BAR> startinsert<CR>"),
     dashboard.button("f", "  Find Files", "<Cmd>Telescope find_files<CR>"),
     dashboard.button("g", "  Live Grep", "<Cmd>Telescope live_grep<CR>"),
-    -- TODO: orgmode notes
-    dashboard.button("o", "  Recent Files", "<Cmd>Telescope oldfiles<CR>"), -- TODO: use frecency
-    dashboard.button("s", "  Restore Session", "<Cmd>SessionManager load_last_session<CR>"),
-    dashboard.button("S", "  Find Sessions", "<Cmd>SessionManager load_session<CR>"),
-    dashboard.button("c", "﫸 Neovim Config", "<Cmd>e ~/.config/nvim/lua/plugins/init.lua<CR>"),
+    dashboard.button("r", "  Recent Files", "<Cmd>Telescope oldfiles<CR>"), -- TODO: use frecency
+    --[[ dashboard.button("s", "  Restore Session", "<Cmd>SessionManager load_last_session<CR>"), ]]
+    --[[ dashboard.button("S", "  Find Sessions", "<Cmd>SessionManager load_session<CR>"), ]]
+    --[[ dashboard.button("c", "﫸 Neovim Config", "<Cmd>e ~/.config/nvim/lua/plugins/init.lua<CR>"), ]]
     dashboard.button("u", "  Update Plugins", "<Cmd>PackerSync<CR>"),
     dashboard.button("q", "⏻  Quit Neovim", "<Cmd>qa<CR>"),
   }
