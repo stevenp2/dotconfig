@@ -57,7 +57,6 @@ return packer.startup(function(use)
   use {
     'goolord/alpha-nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
-    config = require("stevenp2.alpha")
     } -- greeter for nvim
   use "ellisonleao/glow.nvim"
 
