@@ -59,6 +59,7 @@ return packer.startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons' },
     } -- greeter for nvim
   use "ellisonleao/glow.nvim"
+  use "folke/which-key.nvim" -- viewing keymap
 
   -- ColourSchemes
   use "folke/tokyonight.nvim" -- Colourscheme plugin
