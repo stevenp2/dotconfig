@@ -60,6 +60,7 @@ return packer.startup(function(use)
     } -- greeter for nvim
   use "ellisonleao/glow.nvim"
   use "folke/which-key.nvim" -- viewing keymap
+  use { "akinsho/toggleterm.nvim", tag = "*"} -- toggle terminal
 
   -- ColourSchemes
   use "folke/tokyonight.nvim" -- Colourscheme plugin
@@ -71,6 +72,7 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-cmdline" -- cmdline completions
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp" -- lsp completiona
+  use ("github/copilot.vim", "copilot") -- AI generated code
 
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
