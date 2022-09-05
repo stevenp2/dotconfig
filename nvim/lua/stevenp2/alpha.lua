@@ -22,7 +22,7 @@ dashboard.section.header.val = {
     [[⠀⠀⠀⠀⠀⠀⠀⠀⠁⠒⠂⠉⠀⠀⡠⠠⠄⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ]],
     [[                                             stevenp2 ]],
     [[                                                      ]],
-    [[       > Press [s] to restore your last session <     ]]
+    [[          > Press [c] to go to your config <          ]]
 }
 
 dashboard.section.buttons.val = {
@@ -30,8 +30,6 @@ dashboard.section.buttons.val = {
   dashboard.button("f", "  Find Files", "<Cmd>Telescope find_files<CR>"),
   dashboard.button("g", "  Live Grep", "<Cmd>Telescope live_grep<CR>"),
   dashboard.button("r", "  Recent Files", "<Cmd>Telescope oldfiles<CR>"), -- TODO: use frecency
-  --[[ dashboard.button("s", "  Restore Session", "<Cmd>SessionManager load_last_session<CR>"), ]]
-  --[[ dashboard.button("S", "  Find Sessions", "<Cmd>SessionManager load_session<CR>"), ]]
   dashboard.button("c", "﫸 Neovim Config", "<Cmd>e ~/.config/nvim/lua/stevenp2/plugins.lua<CR>"),
   dashboard.button("u", "  Update Plugins", "<Cmd>PackerSync<CR>"),
   dashboard.button("q", "⏻  Quit Neovim", "<Cmd>qa<CR>"),
