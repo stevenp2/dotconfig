@@ -54,6 +54,7 @@ return packer.startup(function(use)
   use "stevearc/dressing.nvim" -- wrapper around vim calls
   use "b0o/incline.nvim" -- buffer management with multiple splits
   use "petertriho/nvim-scrollbar" -- scrollbar
+  use "lukas-reineke/indent-blankline.nvim" -- view degree of indentation
   use {
     'goolord/alpha-nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
@@ -109,10 +110,7 @@ return packer.startup(function(use)
   use "nvim-telescope/telescope-media-files.nvim" -- view media in telescope
 
   -- Treesitter
-  use {
-    "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
-  }
+  use "nvim-treesitter/nvim-treesitter"
   use "JoosepAlviste/nvim-ts-context-commentstring" -- comment string based on context
 
   -- autopairs
