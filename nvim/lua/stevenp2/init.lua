@@ -16,7 +16,7 @@ require("stevenp2.dressing")
 require("stevenp2.incline")
 require("stevenp2.scrollbar")
 require("stevenp2.urlview")
-require("stevenp2.which-key")
+-- require("stevenp2.which-key")
 require("stevenp2.toggleterm")
 
 require("stevenp2.lsp")
