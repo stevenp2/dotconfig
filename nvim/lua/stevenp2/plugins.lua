@@ -73,6 +73,7 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-cmdline" -- cmdline completions
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp" -- lsp completiona
+  use "hrsh7th/cmp-nvim-lua" -- lua completiona
   --[[ use ("github/copilot.vim", "copilot") -- AI generated code ]]
 
   -- snippets
