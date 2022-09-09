@@ -19,6 +19,7 @@ require("stevenp2.urlview")
 -- require("stevenp2.which-key")
 require("stevenp2.toggleterm")
 require("stevenp2.indent-blankline")
+require("stevenp2.neoscroll")
 
 require("stevenp2.lsp")
 require("stevenp2.doc_preview")
