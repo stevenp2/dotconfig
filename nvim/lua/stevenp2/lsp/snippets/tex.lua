@@ -89,6 +89,7 @@ table.insert(snippets, ls.parser.parse_snippet("template", template))
 
 local math_sets = {
    s("empty", { t("\\emptyset"), i(0) }, { condition = math_mode }),
+   s("inf", { t("\\infty"), i(0) }, { condition = math_mode }),
    s("NN", { t("\\mathbb{N}"), i(0) }, { condition = math_mode }),
    s("PP", { t("\\mathbb{P}"), i(0) }, { condition = math_mode }),
    s("QQ", { t("\\mathbb{Q}"), i(0) }, { condition = math_mode }),
@@ -99,7 +100,13 @@ local math_sets = {
    s("MM", { t("\\mathfrak{m}"), i(0) }, { condition = math_mode }),
    s("Pp", { t("\\mathfrak{p}"), i(0) }, { condition = math_mode }),
    s("OO", { t("\\mathscr{O}"), i(0) }, { condition = math_mode }),
+   s("sett", { t("\\left{ "), i(1), t(" \\right}"), i(0) }, { condition = math_mode }),
 
+   s("subset", { t("\\subset"), i(0) }, { condition = math_mode }),
+   s("cup", { t("\\cup{"), i(1, "n = 1}"), t("^{"), i(2, "\\infty"), t("}"), i(0) }, { condition = math_mode }),
+   s("cap", { t("\\cap{"), i(1, "n = 1}"), t("^{"), i(2, "\\infty"), t("}"), i(0) }, { condition = math_mode }),
+   s("<|", { t("\\triangleleft"), i(0) }, { condition = math_mode }),
+   s("|>", { t("\\triangleright"), i(0) }, { condition = math_mode }),
 }
 insert_to_autosnip(math_sets)
 
@@ -145,12 +152,89 @@ local math_arrows = {
    s("<~", { t("\\rightsquigarrow"), i(0) }, { condition = math_mode }),
    s(">>", { t("\\twoheadrightarrow"), i(0) }, { condition = math_mode }),
    s("<<", { t("\\twoheadleftarrow"), i(0) }, { condition = math_mode }),
-   s("<!", { t("\\triangleleft"), i(0) }, { condition = math_mode }),
-   s("!>", { t("\\triangleright"), i(0) }, { condition = math_mode }),
    s("maps", { t("\\mapsto"), i(0) }, { condition = math_mode }),
    s("!=", { t("\\neq"), i(0) }, { condition = math_mode }),
 }
 insert_to_autosnip(math_arrows)
 
+local math_functions = {
+   s("frac", { t("\\frac{"), i(1), t("}{"), i(2), t("}"), i(0) }, { condition = math_mode } ),
+   s("diff", { t("\\frac{d "), i(1), t("}{d "), i(2), t("}"), i(0) }, { condition = math_mode } ),
+   s("partial", { t("\\frac{\\partial "), i(1), t("}{\\partial "), i(2), t("}"), i(0) }, { condition = math_mode } ),
+   s("log", { t("\\log{"), i(1), t("}"), i(0) }, { condition = math_mode }),
+   s("ceil", { t("\\left\\lceil "), i(1), t("\\right\\rceil"), i(0) }, { condition = math_mode }),
+   s("floor", { t("\\left\\lfloor "), i(1), t("\\right\\rfloor"), i(0) }, { condition = math_mode }),
+   s("conj", { t("\\overline{"), i(1), t("}"), i(0) }, { condition = math_mode }),
+   s("sum", { t("\\sum_{"), i(1, "n=1}"), t("^{"), i(2, "\\infty"), t("}"), i(0) }, { condition = math_mode }),
+   s("prod", { t("\\prod{"), i(1, "n=1}"), t("^{"), i(2, "\\infty"), t("}"), i(0) }, { condition = math_mode }),
+   s("int", { t("\\int_{"), i(1, "-\\infty}"), t("^{"), i(2, "\\infty"), t("}"), i(0) }, { condition = math_mode }),
+   s("limm", { t("\\lim{"), i(1, "1 \\to \\infty"), t("}"), i(0) }, { condition = math_mode }),
+   s("limm", { t("\\lim{"), i(1, "1 \\to \\infty"), t("}"), i(0) }, { condition = math_mode }),
+   s("limsup", { t("\\limsup_{"), i(1, "1 \\to \\infty"), t("}"), i(0) }, { condition = math_mode }),
+   s("sqrt", { t("\\sqrt{"), i(1), t("}"), i(0) }, { condition = math_mode }),
+   s("abs", { t("\\left| "), i(1), t(" \\right|"), i(0) }, { condition = math_mode }),
+   s("^^", { t("^{"), i(1), t("}"), i(0) }, { condition = math_mode }),
+   s("__", { t("_{"), i(1), t("}"), i(0) }, { condition = math_mode }),
+}
+insert_to_autosnip(math_functions)
+
+local math_operators = {
+   s("()", { t("("), i(1), t(")"), i(0) }, { condition = math_mode }),
+   s("[]", { t("["), i(1), t("]"), i(0) }, { condition = math_mode }),
+   s("**", { t("\\cdot"), i(0) }, { condition = math_mode }),
+   s("xx", { t("\\times"), i(0) }, { condition = math_mode }),
+   s("<>", { t("\\langle "), i(1), t(" \\rangle"), i(0) }, { condition = math_mode }),
+}
+insert_to_autosnip(math_operators)
+
+local math_quantifiers = {
+   s("exists", { t("\\exists"),i(0) }, { condition = math_mode }),
+   s("forall", { t("\\forall"),i(0) }, { condition = math_mode }),
+   s("not", { t("\\not"),i(0) }, { condition = math_mode }),
+   s("inn", { t("\\in"),i(0) }, { condition = math_mode }),
+}
+insert_to_autosnip(math_quantifiers)
+
+local math_misc = {
+   s("...", { t("\\ldots"),i(0) }, { condition = math_mode }),
+   s("`", { t("~"),i(0) }, { condition = math_mode }),
+   s("~~", { t("\\approx"),i(0) }, { condition = math_mode }),
+   s("~-", { t("\\simeq"),i(0) }, { condition = math_mode }),
+   s("~=", { t("\\cong"),i(0) }, { condition = math_mode }),
+   s("-=", { t("\\equiv"),i(0) }, { condition = math_mode }),
+}
+insert_to_autosnip(math_misc)
+
+local latex_general_auto = {
+   s("opname", { t("\\operatorname{"), i(1), t("}"), i(0) }, { condition = math_mode }),
+   s("ds", { t("\\displaystyle"),i(0) }, { condition = math_mode }),
+   s("text", { t("\\text{"), i(1), t("}"), i(0)}, { condition = math_mode }),
+   s("pmat", { t{"\\begin{pmatrix}", "\t"}, i(1), t{"", "\\end{pmatrix}", ""}, i(0)}, { condition = math_mode }),
+   s("bmat", { t{"\\begin{bmatrix}", "\t"}, i(1), t{"", "\\end{bmatrix}", ""}, i(0)}, { condition = math_mode }),
+   s("imat", { t{"\\begin{matrix}", "\t"}, i(1), t{"", "\\end{matrix}", ""}, i(0)}, { condition = math_mode }),
+   s("cases", { t{"\\begin{case}", "\t"}, i(1), t{", & \\text{"}, i(2), t{"} \\\\", "\t"}, i(3), t(", & \\text{"), i(4), t{"}", "\\end{cases}", ""}, i(0)}, { condition = math_mode }),
+   s("{}", { t("{"), i(1), t("}"), i(0) }),
+   s("$$", { t("$"), i(1), t("$"), i(0) }),
+}
+insert_to_autosnip(latex_general_auto)
+
+local latex_general = {
+   s("bold", { t("\\textbf{"), i(1), t("}"), i(0)}),
+   s("italic", { t("\\textit{"), i(1), t("}"), i(0)}),
+   s("underline", { t("\\underline{"), i(1), t("}"), i(0)}),
+   s("beg", { t("\\begin{"), i(1), t{"}", "\t"}, i(2), t{"", "\\end{"}, rep(1), t{"}", ""} , i(0)}),
+   s("beg", { t("\\begin{"), i(1), t{"}", "\t"}, i(2), t{"", "\\end{"}, rep(1), t{"}", ""} , i(0)}),
+   s("item", { t{"\\begin{itemize}", "\t \\item "}, i(1), t{"", "\\end{itemize}", ""}, i(0)}),
+   s("enum", { t{"\\begin{enumerate}[label=\\bfseries\\tiny\\protect\\circled{\\small\\arabic*}]", "\t \\item "}, i(1), t{"", "\\end{enumerate}", ""}, i(0)}),
+   ls.parser.parse_snippet("fig", [[
+      \begin{center}
+        \captionsetup{type=figure}
+        \includegraphics[width=0.8\textwidth, scale=0.5]{$1}
+        \captionof{figure}{$2}\label{$3}
+      \end{center}
+      $0
+   ]])
+}
+insert_to_snip(latex_general)
 
 return snippets, autosnippets
