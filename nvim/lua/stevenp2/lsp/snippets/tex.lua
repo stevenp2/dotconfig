@@ -29,21 +29,15 @@ local math_mode = function()
     return vim.api.nvim_command_output("echo vimtex#syntax#in_mathzone()") == '1'
 end
 
-local insert_to_autosnip = function(snip_list)
+local insert_to_snip = function(snip_list, ret_list)
     for _, snippet in ipairs(snip_list) do
-        table.insert(autosnippets, snippet)
-    end
-end
-
-local insert_to_snip = function(snip_list)
-    for _, snippet in ipairs(snip_list) do
-        table.insert(snippets, snippet)
+        table.insert(ret_list, snippet)
     end
 end
 
 local preamble = [[
-    \usepackage[margin=1in, headsep=0.1in]{geometry} 
-    \usepackage{amsmath,amsthm,amssymb,amsfonts, fancyhdr, color, graphicx}
+    \usepackage[tmargin=1cm,rmargin=1in,lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in, headsep=.1in]{geometry}
+    \usepackage{amsmath,amsthm,amssymb, mathtools,amsfonts, fancyhdr, color, graphicx}
     \usepackage{xcolor}
     \usepackage{pdfpages}
     \usepackage{indentfirst}
@@ -55,33 +49,51 @@ local preamble = [[
 
     \renewcommand{\vec}[1]{\mathbf{#1}}
     \renewcommand{\labelitemi}{$\Rightarrow$}
-    \renewcommand{\tab}{\hspace{10mm}}
 
     \pdfsuppresswarningpagegroup=1
+
+    \theoremstyle{plain}
+    \newtheorem{thm}{Theorem}[section]
+    \newtheorem{prop}[thm]{Proposition}
+    \newtheorem{cor}[thm]{Corollary}
+    \newtheorem{lem}[thm]{Lemma}
+
+    \theoremstyle{definition}
+    \newtheorem{dfn}[thm]{Definition}
+    \newtheorem{ex}[thm]{Example}
+
+    \theoremstyle{remark}
+    \newtheorem{rem}[thm]{Remark}
+    \newcommand{\nt}[1]{\fbox{\parbox{\textwidth - 0.1in}{\fbox{\textbf{Note:-}} \par #1}}}
 ]]
 table.insert(snippets, ls.parser.parse_snippet("preamble", preamble))
 
 local template = [[
-    \documentclass{report}
+    \documentclass{article}
+    \input{../preamble.tex}
 
-    \input{../master.tex} % location of master.tex
+    \lhead{$1}
+    \rhead{$2} % Course
+    \chead{$3} % Subject
 
-    \lhead{Steven Phung}
-    \rhead{$1} % Course
-    \chead{$2} % Subject
-
-    \title{$1}
-    \author{Steven Phung}
-    \date{\today}
+    \title{$2 - $3}
+    \author{$1}
+    \date{$4 - \today}
 
     \begin{document}
     \maketitle
-        $3
+    \pagebreak
     \tableofcontents
+    \pagebreak
+    \setcounter{page}{1}
 
-    \newpage
-    \section{$4}
-        $0
+    \section{$5}
+        \include{$0}
+
+    % \begin{appendices}
+    %     \section{}
+    %     \include}{}
+    % \end{appendices}
 
     \end{document}
 ]]
@@ -108,7 +120,7 @@ local math_sets = {
    s("<|", { t("\\triangleleft"), i(0) }, { condition = math_mode }),
    s("|>", { t("\\triangleright"), i(0) }, { condition = math_mode }),
 }
-insert_to_autosnip(math_sets)
+insert_to_snip(math_sets, autosnippets)
 
 local math_greeks = {
    s("alp", { t("\\alpha"), i(0) }, { condition = math_mode }),
@@ -137,7 +149,7 @@ local math_greeks = {
    s("psi", { t("\\psi"), i(0) }, { condition = math_mode }),
    s("omeg", { t("\\omega"), i(0) }, { condition = math_mode }),
 }
-insert_to_autosnip(math_greeks)
+insert_to_snip(math_greeks, autosnippets)
 
 local math_arrows = {
    s("=>", { t("\\implies"), i(0) }, { condition = math_mode }),
@@ -155,7 +167,7 @@ local math_arrows = {
    s("maps", { t("\\mapsto"), i(0) }, { condition = math_mode }),
    s("!=", { t("\\neq"), i(0) }, { condition = math_mode }),
 }
-insert_to_autosnip(math_arrows)
+insert_to_snip(math_arrows, autosnippets)
 
 local math_functions = {
    s("frac", { t("\\frac{"), i(1), t("}{"), i(2), t("}"), i(0) }, { condition = math_mode } ),
@@ -176,7 +188,7 @@ local math_functions = {
    s("^^", { t("^{"), i(1), t("}"), i(0) }, { condition = math_mode }),
    s("__", { t("_{"), i(1), t("}"), i(0) }, { condition = math_mode }),
 }
-insert_to_autosnip(math_functions)
+insert_to_snip(math_functions, autosnippets)
 
 local math_operators = {
    s("()", { t("("), i(1), t(")"), i(0) }, { condition = math_mode }),
@@ -185,7 +197,7 @@ local math_operators = {
    s("xx", { t("\\times"), i(0) }, { condition = math_mode }),
    s("<>", { t("\\langle "), i(1), t(" \\rangle"), i(0) }, { condition = math_mode }),
 }
-insert_to_autosnip(math_operators)
+insert_to_snip(math_operators, autosnippets)
 
 local math_quantifiers = {
    s("exists", { t("\\exists"),i(0) }, { condition = math_mode }),
@@ -193,7 +205,7 @@ local math_quantifiers = {
    s("not", { t("\\not"),i(0) }, { condition = math_mode }),
    s("inn", { t("\\in"),i(0) }, { condition = math_mode }),
 }
-insert_to_autosnip(math_quantifiers)
+insert_to_snip(math_quantifiers, autosnippets)
 
 local math_misc = {
    s("...", { t("\\ldots"),i(0) }, { condition = math_mode }),
@@ -203,7 +215,7 @@ local math_misc = {
    s("~=", { t("\\cong"),i(0) }, { condition = math_mode }),
    s("-=", { t("\\equiv"),i(0) }, { condition = math_mode }),
 }
-insert_to_autosnip(math_misc)
+insert_to_snip(math_misc, autosnippets)
 
 local latex_general_auto = {
    s("opname", { t("\\operatorname{"), i(1), t("}"), i(0) }, { condition = math_mode }),
@@ -216,13 +228,12 @@ local latex_general_auto = {
    s("{}", { t("{"), i(1), t("}"), i(0) }),
    s("$$", { t("$"), i(1), t("$"), i(0) }),
 }
-insert_to_autosnip(latex_general_auto)
+insert_to_snip(latex_general_auto, autosnippets)
 
 local latex_general = {
    s("bold", { t("\\textbf{"), i(1), t("}"), i(0)}),
    s("italic", { t("\\textit{"), i(1), t("}"), i(0)}),
    s("underline", { t("\\underline{"), i(1), t("}"), i(0)}),
-   s("beg", { t("\\begin{"), i(1), t{"}", "\t"}, i(2), t{"", "\\end{"}, rep(1), t{"}", ""} , i(0)}),
    s("beg", { t("\\begin{"), i(1), t{"}", "\t"}, i(2), t{"", "\\end{"}, rep(1), t{"}", ""} , i(0)}),
    s("item", { t{"\\begin{itemize}", "\t \\item "}, i(1), t{"", "\\end{itemize}", ""}, i(0)}),
    s("enum", { t{"\\begin{enumerate}[label=\\bfseries\\tiny\\protect\\circled{\\small\\arabic*}]", "\t \\item "}, i(1), t{"", "\\end{enumerate}", ""}, i(0)}),
@@ -235,6 +246,6 @@ local latex_general = {
       $0
    ]])
 }
-insert_to_snip(latex_general)
+insert_to_snip(latex_general, snippets)
 
 return snippets, autosnippets
