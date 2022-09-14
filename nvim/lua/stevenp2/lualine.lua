@@ -102,7 +102,7 @@ end
 local mode_icon = {
   function()
     local die = { '', '', '', '', '', ''}
-    return die[math.random(6)] --         
+    return die[math.random( #die )] --         
   end,
   color = function()
     -- auto change color according to neovims mode

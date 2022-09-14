@@ -1,5 +1,11 @@
+local treesitter_statis_ok, _ = pcall(require, "nvim-treesitter")
+
+if not treesitter_statis_ok then
+  return
+end
+
 local configs = require("nvim-treesitter.configs")
-configs.setup {
+configs.setup{
   ensure_installed = "all", -- one of 'all', 'maintained' (parsers with amintainers), or a list of languages
   sync_install = false,  -- install languages synchornously (only applied to 'ensure_installed')
   ignore_install = {}, -- List of parsers to ignore installing
