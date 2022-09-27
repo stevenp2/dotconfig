@@ -14,13 +14,13 @@ urlview.setup({
   default_prefix = "https://",
   -- Command or method to open links with
   -- Options: "netrw", "system" (default OS browser); or "firefox", "chromium" etc.
-  navigate_method = "system",
+  default_action = "system",
   -- Ensure links shown in the picker are unique (no duplicates)
   unique = true,
   -- Ensure links shown in the picker are sorted alphabetically
   sorted = true,
   -- Logs user warnings (recommended for error detection)
-  debug = true,
+  log_level_min = true,
   -- Custom search captures
   -- NOTE: captures follow Lua pattern matching (https://riptutorial.com/lua/example/20315/lua-pattern-matching)
   custom_searches = {
