@@ -19,6 +19,8 @@ urlview.setup({
   unique = true,
   -- Ensure links shown in the picker are sorted alphabetically
   sorted = true,
+  -- Logs user warnings (recommended for error detection)
+  log_level_min = true,
   -- Custom search captures
   -- NOTE: captures follow Lua pattern matching (https://riptutorial.com/lua/example/20315/lua-pattern-matching)
   custom_searches = {
