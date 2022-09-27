@@ -28,9 +28,6 @@ vim.g.maplocalleader = " "
 -- clear highlithgint
 keymap("n", "<esc><esc>", ":noh<return>", opts)
 
--- rename
-keymap("n", "gr", ":IncRename ", opts)
-
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
 keymap("n", "<C-Down>", ":resize -2<CR>", opts)
