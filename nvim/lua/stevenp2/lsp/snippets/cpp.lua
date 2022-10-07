@@ -31,7 +31,7 @@ ll lb(ll a, ll b) { return max(a - b, (ll) 0); }
 ll ub(ll a, ll b, ll n) { return min(a + b, n); }
 
 int main() {
-    fio
+    fio;
     $0
 }
 ]]
