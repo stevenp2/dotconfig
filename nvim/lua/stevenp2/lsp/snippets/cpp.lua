@@ -27,6 +27,7 @@ typedef long long ll;
 using namespace std;
 ll madd(ll a, ll b) { return ((a + b) % MOD + MOD) % MOD; }
 ll msub(ll a, ll b) { return ((a - b) % MOD + MOD) % MOD; }
+ll mmult(ll a, ll b) { return ((a * b) % MOD); }
 ll lb(ll a, ll b) { return max(a - b, (ll) 0); }
 ll ub(ll a, ll b, ll n) { return min(a + b, n); }
 
