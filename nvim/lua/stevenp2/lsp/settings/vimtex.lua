@@ -12,8 +12,7 @@ vim.g.vimtex_syntax_conceal_disable = 1
 -- vim.g.vimtex_quickfix_ignore_mode = 0
 
 -- PDF viewer settings
-vim.g.vimtex_view_general_viewer = "/Applications/Skim.app/Contents/SharedSupport/displayline"
-vim.g.vimtex_view_general_options = "-r @line @pdf @tex"
+vim.g.vimtex_view_general_viewer = "zathura"
 
 -- Do not auto open quickfix on compile erros
 -- vim.g.vimtex_quickfix_mode = 0
