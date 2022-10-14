@@ -1,5 +1,5 @@
 #!/bin/bash
-source "$HOME/dotconfig/setup-utilities.sh"
+source "$HOME/dotconfig/setup-utils.sh"
 
 # Install Neovim
 action="install Neovim"
