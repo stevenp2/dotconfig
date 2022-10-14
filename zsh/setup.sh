@@ -43,10 +43,8 @@ fi
 
 action="link config"
 if confirm "$action"; then
-  if is_linux; then
-    link_config "$HOME/dotconfig/zsh/.zshrc-linux" "$HOME/.zshrc"
-  elif is_mac; then
-    link_config "$HOME/dotconfig/zsh/.zshrc-mac" "$HOME/.zshrc"
+  if is_linux || is_mac; then
+    link_config "$HOME/dotconfig/zsh/.zshrc" "$HOME/.zshrc"
   else
     echo "invalid OSTYPE $OSTYPE for zsh setup"
   fi
