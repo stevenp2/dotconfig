@@ -9,7 +9,7 @@ if confirm "$action"; then
     wget --no-verbose https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/$NERDFONT.zip
     unzip $NERDFONT.zip -d $NERDFONT-NF 2> /dev/null
     rm $NERDFONT.zip
-    cp -r $./NERDFONT\ * ~/.fonts
+    cp -r ./$NERDFONT-NF/$NERDFONT\ * ~/.fonts
     rm -r $NERDFONT-NF
     fc-cache -fv 
   elif is_mac; then
