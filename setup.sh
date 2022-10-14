@@ -14,3 +14,5 @@ setup_app() {
 }
 
 setup_add nvim
+setup_add lazygit
+setup_add alacritty
