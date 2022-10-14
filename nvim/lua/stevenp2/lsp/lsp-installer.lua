@@ -12,7 +12,8 @@ local servers = {
   "rome",
   "texlab",
   "rust_analyzer",
-  "taplo"
+  "taplo",
+  "marksman"
 }
 
 lsp_installer.setup()
