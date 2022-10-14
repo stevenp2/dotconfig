@@ -13,7 +13,8 @@ setup_app() {
   fi
 }
 
-setup_add zsh
-setup_add nvim
-setup_add lazygit
-setup_add alacritty
+setup_app zsh
+setup_app nvim
+setup_app lazygit
+setup_app alacritty
+setup_app bottom
