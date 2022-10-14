@@ -5,8 +5,11 @@ function pathadd() {
     export PATH="$1${PATH:+":${PATH}"}"
   fi
 }
-
-pathadd "$HOME/go/bin:"
+pathadd "$HOME/.bin"
+pathadd "$HOME/.local/bin"
+pathadd "$HOME/.cargo/bin"
+pathadd "$HOME/go/bin"
+pathadd "$HOME/bin/path"
 pathadd "$HOME/.cargo/bin:"
 
 #zsh extension
