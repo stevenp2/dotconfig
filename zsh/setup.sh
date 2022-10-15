@@ -28,12 +28,13 @@ if ! check_dependency starship; then
   fi
 fi
 
-action="install zsh plugins"
+action="install zsh plugins/themes"
 if confirm "$action"; then
-  ZSH_CUSTOM="$HOME/.oh-my-zsh/custom/plugins"
-  git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/zsh-autosuggestions
-  git clone https://github.com/zsh-users/zsh-completions.git $ZSH_CUSTOM/zsh-completions
-  git clone https://github.com/zsh-users/zsh-syntax-highlighting $ZSH_CUSTOM/zsh-syntax-highlighting
+  ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
+  git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+  git clone https://github.com/zsh-users/zsh-completions.git $ZSH_CUSTOM/plugins/zsh-completions
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 fi
 
 action="change default shell to zsh"
@@ -45,6 +46,15 @@ action="link config"
 if confirm "$action"; then
   if is_linux || is_mac; then
     link_config "$HOME/dotconfig/zsh/.zshrc" "$HOME/.zshrc"
+  else
+    echo "invalid OSTYPE $OSTYPE for zsh setup"
+  fi
+fi
+
+action="link p10k"
+if confirm "$action"; then
+  if is_linux || is_mac; then
+    link_config "$HOME/dotconfig/zsh/.p10k.zsh" "$HOME/.p10k.zsh"
   else
     echo "invalid OSTYPE $OSTYPE for zsh setup"
   fi
