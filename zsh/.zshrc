@@ -22,11 +22,6 @@ pathadd "$HOME/.cargo/bin:"
 # zsh extension
 eval "$(starship init zsh)"
 
-# theme
-ZSH_THEME="powerlevel10k/powerlevel10k"
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 # zsh location
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -59,4 +54,3 @@ alias g='git status'
 # browsers
 alias brave='./opt/brave.com/brave &'
 alias firefox='firefox &'
-
