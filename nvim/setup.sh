@@ -5,7 +5,7 @@ source "$HOME/dotconfig/setup-utils.sh"
 action="install Neovim"
 if ! check_dependency "nvim" && confirm "$action"; then
   if is_linux; then
-    sudo apt neovim
+    sudo apt install neovim
   elif is_mac; then
     brew install neovim
   else
