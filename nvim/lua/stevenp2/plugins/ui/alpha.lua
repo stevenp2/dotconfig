@@ -34,7 +34,7 @@ dashboard.section.buttons.val = {
   dashboard.button("f", "  Find Files", "<Cmd>Telescope find_files<CR>"),
   dashboard.button("g", "  Live Grep", "<Cmd>Telescope live_grep<CR>"),
   dashboard.button("r", "  Recent Files", "<Cmd>Telescope oldfiles<CR>"), -- TODO: use frecency
-  dashboard.button("c", "﫸 Neovim Config", "<Cmd>e ~/.config/nvim/lua/stevenp2/plugins.lua<CR>"),
+  dashboard.button("c", "﫸 Neovim Config", "<Cmd>e ~/.config/nvim/lua/stevenp2/plugins/init.lua<CR>"),
   dashboard.button("u", "  Update Plugins", "<Cmd>PackerSync<CR>"),
   dashboard.button("q", "⏻  Quit Neovim", "<Cmd>qa<CR>"),
 }
