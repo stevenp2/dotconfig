@@ -83,13 +83,6 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lsp" -- lsp completiona
   use "hrsh7th/cmp-nvim-lua" -- lua completiona
 
-  -- testing copilot
---[[   use { ]]
---[[     "github/copilot.vim", ]]
---[[     "zbirenbaum/copilot-cmp", ]]
---[[     module = "copilot_cmp" ]]
---[[ } ]]
-
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
@@ -141,14 +134,6 @@ return packer.startup(function(use)
 
   -- rust 
   use "simrat39/rust-tools.nvim"
-
- -- EXPERIMENTALJKj
-  --[[ use {"williamboman/mason.nvim",  ]]
-  --[[   config = function () require("mason").setup() end ]]
-  --[[ } ]]
-
-  -- competitest
-  --[[ use "xeluxee/competitest.nvim" ]]
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
