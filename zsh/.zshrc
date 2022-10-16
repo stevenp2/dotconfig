@@ -54,3 +54,5 @@ alias g='git status'
 # browsers
 alias brave='./opt/brave.com/brave &'
 alias firefox='firefox &'
+
+neofetch
