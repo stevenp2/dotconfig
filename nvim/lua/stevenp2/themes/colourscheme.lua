@@ -1,4 +1,4 @@
-local colorscheme = "tokyonight"
+local colourscheme = "tokyonight"
 
 local tokyo_status_ok, tokyonight = pcall(require, "tokyonight")
 
@@ -27,10 +27,10 @@ tokyonight.setup({
   on_highlights = function(highlights, colors) end,
 })
 
-local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
+local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colourscheme)
 
 if not status_ok then
-  vim.notify("colorscheme " .. colorscheme .. " not found!")
+  vim.notify("colorscheme " .. colourscheme .. " not found!")
   return
 end
 

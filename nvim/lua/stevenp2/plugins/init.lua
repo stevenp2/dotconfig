@@ -1,3 +1,8 @@
+require("stevenp2.plugins.treesitter")
+require("stevenp2.plugins.utils")
+require("stevenp2.plugins.ui")
+require("stevenp2.plugins.lsp")
+
 local fn = vim.fn
 
 -- Automatically install packer
