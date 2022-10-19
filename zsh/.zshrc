@@ -1,8 +1,10 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+source "$HOME/dotconfig/setup-utils.sh"
+if is_linux; then
+  source "./linux.sh"
+elif is_mac; then
+  source "./mac.sh"
+else
+  echo "Failed to $action: unsupported OS"
 fi
 
 ### PATH Additions ###
@@ -24,6 +26,8 @@ eval "$(starship init zsh)"
 
 # zsh location
 export ZSH="$HOME/.oh-my-zsh"
+# editor
+export EDITOR="nvim"
 
 plugins=(
     git
