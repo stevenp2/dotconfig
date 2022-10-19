@@ -1,8 +1,8 @@
 source "$HOME/dotconfig/setup-utils.sh"
 if is_linux; then
-  source "./linux.sh"
+  source "$HOME/dotconfig/zsh/linux.sh"
 elif is_mac; then
-  source "./mac.sh"
+  source "$HOME/dotconfig/zsh/mac.sh"
 else
   echo "Failed to $action: unsupported OS"
 fi
@@ -59,4 +59,3 @@ alias g='git status'
 alias brave='./opt/brave.com/brave &'
 alias firefox='firefox &'
 
-neofetch
