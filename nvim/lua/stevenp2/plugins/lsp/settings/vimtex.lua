@@ -46,8 +46,6 @@ else
   vim.g.vimtex_view_general_options = "-r @line @pdf @tex"
 end
 
-vim.g.vimtex_fold_enabled = 1
-
 -- Do not auto open quickfix on compile erros
 -- vim.g.vimtex_quickfix_mode = 0
 -- Latex warnings to ignore

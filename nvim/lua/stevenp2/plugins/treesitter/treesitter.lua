@@ -6,9 +6,9 @@ end
 
 local configs = require("nvim-treesitter.configs")
 configs.setup{
-  ensure_installed = "all", -- one of 'all', 'maintained' (parsers with amintainers), or a list of languages
+  ensure_installed = "all", -- one of 'all', 'maintained' (parsers with maintainers), or a list of languages
   sync_install = false,  -- install languages synchornously (only applied to 'ensure_installed')
-  ignore_install = {}, -- List of parsers to ignore installing
+  ignore_install = { "latex" }, -- List of parsers to ignore installing
   autopairs = {
     enable = true,
   },
@@ -24,3 +24,10 @@ configs.setup{
   },
   indent = { enable = true, disable = { "yaml", "latex" } },
 }
+
+-- folding
+local vim = vim
+
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevel = 99 -- hacky way of doing it
