@@ -9,12 +9,12 @@ urlview.setup({
   default_title = "Links:",
   -- Default picker to display links with
   -- Options: "native" (vim.ui.select) or "telescope"
-  default_picker = "native",
+  default_picker = "telescope",
   -- Set the default protocol for us to prefix URLs with if they don't start with http/https
   default_prefix = "https://",
   -- Command or method to open links with
   -- Options: "netrw", "system" (default OS browser); or "firefox", "chromium" etc.
-  default_action = "system",
+  default_action = "firefox",
   -- Ensure links shown in the picker are unique (no duplicates)
   unique = true,
   -- Ensure links shown in the picker are sorted alphabetically
