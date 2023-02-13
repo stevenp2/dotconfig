@@ -36,9 +36,9 @@ for _, server in pairs(servers) do
 	 	opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
 	 end
 
-	 if server == "sumneko_lua" then
-	 	local sumneko_opts = require("stevenp2.plugins.lsp.settings.sumneko_lua")
-	 	opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
+	 if server == "lua_ls" then
+	 	local lua_opts = require("stevenp2.plugins.lsp.settings.lua_ls")
+	 	opts = vim.tbl_deep_extend("force", lua_opts, opts)
 	 end
 
 	 if server == "texlab" then
