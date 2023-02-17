@@ -1,1 +1,1 @@
-require("stevenp2.themes.colourscheme")
+require("stevenp2.plugins.themes.colourscheme")
