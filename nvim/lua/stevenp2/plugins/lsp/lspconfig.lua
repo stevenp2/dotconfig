@@ -14,6 +14,13 @@ local servers = {
 }
 
 function M.setup()
+    require("stevenp2.plugins.lsp.handlers").setup()
+
+    local status_lsp_installer, _ = pcall(require, "nvim-lsp-installer")
+    if not status_lsp_installer then
+      return
+    end
+
     local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
     if not lspconfig_status_ok then
       return
