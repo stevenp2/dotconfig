@@ -53,7 +53,9 @@ return lazy.setup({
   -- TODO [[ "folke/which-key.nvim", -- viewing keymap ]]
 
   -- cmp plugins
-  "hrsh7th/nvim-cmp",
+  {"hrsh7th/nvim-cmp",
+    config = function() require("stevenp2.plugins.lsp.cmp").setup() end
+  },
   "hrsh7th/cmp-buffer", -- buffer completions
   "hrsh7th/cmp-path", -- path completions
   "hrsh7th/cmp-cmdline", -- cmdline completions
@@ -68,11 +70,24 @@ return lazy.setup({
   -- urlview - a special plugin that gets to take up a lot of space
   "axieax/urlview.nvim",
 
+  ----------------------------------
   -- lsp
-  "neovim/nvim-lspconfig", -- enable lsp
-  "williamboman/nvim-lsp-installer", -- simple lsp installer
-  { "folke/trouble.nvim", dependencies = { "kyazdani42/nvim-web-devicons" } }, -- lsp diagnostics
-  { "cseickel/diagnostic-window.nvim", dependencies = { "MunifTanjim/nui.nvim" }}, -- diagnostic window popup
+  ----------------------------------
+  { "neovim/nvim-lspconfig",
+    dependencies = { "williamboman/nvim-lsp-installer" },
+    config = function()
+      require("stevenp2.plugins.lsp.lsp-installer").setup()
+    end
+  }, -- enable lsp
+
+  { "williamboman/nvim-lsp-installer",
+    config = true
+  }, -- simple lsp installer
+
+  { "folke/trouble.nvim",
+    dependencies = { "kyazdani42/nvim-web-devicons" },
+    config = function() require("stevenp2.plugins.lsp.trouble")  end
+  },
 
   -- Telescope
   {
