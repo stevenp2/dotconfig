@@ -31,31 +31,48 @@ return lazy.setup({
     end
   },
 
-  -- Telescope
-  {
-    "nvim-telescope/telescope.nvim", -- fuzzy finder
+  -------------------------------
+  -- utils
+  -------------------------------
+  { "numtoStr/Comment.nvim",
+    config = function() require("stevenp2.plugins.utils.comment").setup() end
+  }, -- comment things easily
+
+  { "nvim-telescope/telescope.nvim",
     dependencies = {
-      { "kdheepak/lazygit.nvim" }, -- running lazygit in nvim
       { "nvim-lua/plenary.nvim" } -- Useful lua functions used ny lots of plugins
     },
-  },
-  "nvim-telescope/telescope-media-files.nvim", -- view media in telescope
+  }, -- a fuzzy finder
 
-  -- My plugins here
-  "nvim-lua/popup.nvim", -- An implementation of the Popup API from vim in Neovim
-  "nvim-lua/plenary.nvim", -- Useful lua functions used ny lots of plugins
-  "numtoStr/Comment.nvim", -- comment things easily
-  "kyazdani42/nvim-web-devicons", -- icons used in plugins
-  "kyazdani42/nvim-tree.lua", -- file explorer
-  "moll/vim-bbye", -- allow for deletion of buffer
-  "MunifTanjim/nui.nvim", -- UI component library for neovim
-    "ellisonleao/glow.nvim", -- md viewer
-  { "akinsho/toggleterm.nvim", version = "*"}, -- toggle terminal ]]
-  -- TODO [[ "folke/which-key.nvim", -- viewing keymap ]]
+  { "kdheepak/lazygit.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim"
+    }
+  }, -- running lazygit in nvim
 
-  -- urlview - a special plugin that gets to take up a lot of space
-  "axieax/urlview.nvim",
+  { "nvim-telescope/telescope-media-files.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim"
+    }
+  }, -- view media in telescope
 
+  { "akinsho/toggleterm.nvim",
+    version = "*",
+    config = function() require("stevenp2.plugins.utils.toggleterm").setup() end
+  }, -- toggle terminal
+
+  { "axieax/urlview.nvim",
+    config = function() require("stevenp2.plugins.utils.urlview").setup() end
+  },-- urlview - a special plugin that gets to take up a lot of space
+
+  { "kyazdani42/nvim-tree.lua",
+    config = function() require("stevenp2.plugins.utils.nvim-tree").setup() end
+  }, -- file explorer
+
+  -- TODO
+  --[[ {"folke/which-key.nvim", ]]
+  --[[   config = function() require("stevenp2.plugins.utils.which-key").setup() end ]]
+  --[[ }, -- viewing keymap ]]
 
   -------------------------------
   -- ui
@@ -103,15 +120,12 @@ return lazy.setup({
   -- lsp
   ----------------------------------
   { "neovim/nvim-lspconfig",
-    dependencies = { "williamboman/nvim-lsp-installer" },
+    dependencies = { "williamboman/nvim-lsp-installer" }, -- simple lsp installer
+    priority = 1000,
     config = function()
-      require("stevenp2.plugins.lsp.lsp-installer").setup()
+      require("stevenp2.plugins.lsp.lspconfig").setup()
     end
   }, -- enable lsp
-
-  { "williamboman/nvim-lsp-installer",
-    config = true
-  }, -- simple lsp installer
 
   { "folke/trouble.nvim",
     dependencies = { "kyazdani42/nvim-web-devicons" },
@@ -134,6 +148,25 @@ return lazy.setup({
   "rafamadriz/friendly-snippets", -- a bunch of snippets to use
 
   -------------------------------
+  -- Languages
+  -------------------------------
+
+  -- Latex
+  { "lervag/vimtex",
+    ft = { "tex", "bib", },
+    dependencies = {
+      "neovim/nvim-lspconfig"
+    }
+  },
+
+  -- Rust
+  {"simrat39/rust-tools.nvim",
+    dependencies = {
+      "neovim/nvim-lspconfig"
+    }
+  },
+
+  -------------------------------
   -- Treesitter
   -------------------------------
   {"nvim-treesitter/nvim-treesitter",
@@ -148,13 +181,12 @@ return lazy.setup({
 
 
   -------------------------------
-  -- Languages
+  -- others
   -------------------------------
-
-  -- Latex
-  { "lervag/vimtex", ft = { "tex", "bib", } },
-
-  -- rust
-  "simrat39/rust-tools.nvim",
+  "nvim-lua/popup.nvim", -- An implementation of the Popup API from vim in Neovim
+  "nvim-lua/plenary.nvim", -- Useful lua functions used ny lots of plugins
+  "kyazdani42/nvim-web-devicons", -- icons used in plugins
+  "moll/vim-bbye", -- allow for deletion of buffer
+  "MunifTanjim/nui.nvim", -- UI component library for neovim
 
 })
