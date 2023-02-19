@@ -1,6 +1,6 @@
 local M = {}
 
-function M.setup() 
+function M.setup()
 
 local status_ok, gitsigns = pcall(require, "gitsigns")
   if not status_ok then
@@ -49,6 +49,7 @@ local status_ok, gitsigns = pcall(require, "gitsigns")
     yadm = {
       enable = false,
     },
+    trouble = false, -- decouple trouble.nvim and gitsigns.nvim
   }
 
 end
