@@ -255,6 +255,7 @@ return lazy.setup({
   }, -- autopairing of parens, braces, etc.
 
   { 'kevinhwang91/nvim-ufo',
+    keys = { "zc", "zo", "zR", "zM" },
     dependencies = 'kevinhwang91/promise-async',
     event = "InsertEnter",
     config = function() require("stevenp2.plugins.treesitter.ufo").setup() end

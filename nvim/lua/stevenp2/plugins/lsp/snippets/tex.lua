@@ -19,9 +19,22 @@ local postfix = require("luasnip.extras.postfix").postfix
 
 local snippets, autosnippets = {}, {}
 
+-- escape snippets when changing modes
+vim.api.nvim_create_autocmd('ModeChanged', {
+pattern = '*',
+callback = function()
+  if ((vim.v.event.old_mode == 's' and vim.v.event.new_mode == 'n') or vim.v.event.old_mode == 'i')
+      and ls.session.current_nodes[vim.api.nvim_get_current_buf()]
+      and not ls.session.jump_active
+  then
+    ls.unlink_current()
+  end
+end
+})
+
 -- enable autosnippets
 ls.setup({
-    enable_autosnippets = true
+    enable_autosnippets = true,
 })
 
 -- only insert under math mode in latex
@@ -257,3 +270,7 @@ local latex_general = {
 insert_to_snip(latex_general, snippets)
 
 return snippets, autosnippets
+
+
+
+
