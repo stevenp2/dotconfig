@@ -55,7 +55,6 @@ local lazy_config = {
         "gzip",
         "matchit",
         "matchparen",
-        "netrwPlugin",
         "tarPlugin",
         "tohtml",
         "tutor",
@@ -186,7 +185,6 @@ return lazy.setup({
   }, -- enable lsp
 
   { "williamboman/mason.nvim",
-    cmd = "Mason",
     config = true
   }, -- simple lsp installer
 
