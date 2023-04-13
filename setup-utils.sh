@@ -52,7 +52,7 @@ link_config() {
   [[ $as_root = true ]] && as_user="sudo" || as_user=""
   [[ $copy_only = true ]] && command="cp" || command="ln -s"
   # check if the directory exists
-  if [ -d "/path/to/dir" ]; then
+  if [ -d $dst ]; then
     # create and move to backup if exists
     backup_dst_config $dst $as_user
   else
