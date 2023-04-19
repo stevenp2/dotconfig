@@ -1,6 +1,5 @@
 vim.opt.backup = false                          -- creates a backup file
 vim.opt.clipboard = "unnamedplus"               -- allows neovim to access the system clipboard
-vim.opt.cmdheight = 2                           -- more space in the neovim command line for displaying messages
 vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
 vim.opt.conceallevel = 0                        -- so that `` is visible in markdown files
 vim.opt.fileencoding = "utf-8"                  -- the encoding written to a file
@@ -33,7 +32,10 @@ vim.opt.scrolloff = 8                           -- is one of my fav
 vim.opt.sidescrolloff = 8
 vim.opt.guifont = "monospace:h17"               -- the font used in graphical neovim applications
 vim.opt.cmdheight = 0                           --  remove cmd line when not used 
+vim.opt.relativenumber = true                   -- set relative line number
+vim.opt.cursorline = false                      -- remove cursorline from showing
 
 vim.opt.shortmess:append "c"
 
+--[[ vim.cmd "highlight LineNr guifg=#797c99" ]]
 vim.cmd "set whichwrap+=<,>,[,],h,l"
