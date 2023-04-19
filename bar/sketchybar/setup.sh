@@ -10,7 +10,7 @@ fi
 
 action="link config"
 if confirm "$action"; then
-  link_config "$HOME/dotconfig/bar/sketchybar" "$HOME/.config"
+  link_config "$HOME/dotconfig/bar/sketchybar" "$HOME/.config/sketchybar"
 fi
 
 action="give execution permission to plugins"
