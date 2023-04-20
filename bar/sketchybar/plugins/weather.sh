@@ -15,7 +15,7 @@ WEATHER_JSON=$(curl -s "https://wttr.in/$LOCATION_ESCAPED?format=j1")
 if [ -z $WEATHER_JSON ]; then
 
   sketchybar --set $NAME label=$LOCATION
-  sketchybar --set $NAME.moon icon=
+  sketchybar --set moon icon=
   
   return
 fi
