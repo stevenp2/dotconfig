@@ -79,10 +79,6 @@ return lazy.setup({
   -------------------------------
   { "folke/tokyonight.nvim",
     priority = 1000,
-    dependencies = {
-      "petertriho/nvim-scrollbar",
-      "nvim-lualine/lualine.nvim",
-    },
     config = function()
       require("stevenp2.themes.colourscheme").setup()
     end
@@ -149,6 +145,7 @@ return lazy.setup({
   }, --stevenp2.plugins.ui.lualine
 
   { "petertriho/nvim-scrollbar",
+    after = "folke/tokyonight",
     config = function() require("stevenp2.plugins.ui.scrollbar").setup() end
   }, -- scrollbar
 
@@ -162,6 +159,7 @@ return lazy.setup({
   }, -- buffer management with multiple splits
 
   { "nvim-lualine/lualine.nvim",
+    after = "folke/tokyonight",
     config = function() require("stevenp2.plugins.ui.lualine").setup() end
   }, -- for status line at bottom
 
@@ -240,14 +238,12 @@ return lazy.setup({
   -------------------------------
   { "nvim-treesitter/nvim-treesitter",
     dependencies = {
-      "kevinhwang91/nvim-ufo"
+      "kevinhwang91/nvim-ufo",
+      "numtoStr/Comment.nvim",
+      "JoosepAlviste/nvim-ts-context-commentstring" -- used by comment.nvim
     },
     config = function() require("stevenp2.plugins.treesitter.treesitter").setup() end
   },
-
-  { "JoosepAlviste/nvim-ts-context-commentstring",
-    lazy = true
-  }, -- comment string based on context
 
   { "windwp/nvim-autopairs",
     event = "InsertEnter",
