@@ -199,6 +199,7 @@ return lazy.setup({
     lazy = true,
     event = "InsertEnter",
     dependencies = {
+      "L3MON4D3/LuaSnip",
       "windwp/nvim-autopairs",
       "hrsh7th/cmp-buffer", -- buffer completions
       "hrsh7th/cmp-path", -- path completions
