@@ -65,10 +65,11 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 
 -- Terminal --
 -- Better terminal navigation
-keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
-keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
-keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
-keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+keymap("t", "<C-w>h", "<C-\\><C-N><C-w>h", term_opts)
+keymap("t", "<C-w>j", "<C-\\><C-N><C-w>j", term_opts)
+keymap("t", "<C-w>k", "<C-\\><C-N><C-w>k", term_opts)
+keymap("t", "<C-w>l", "<C-\\><C-N><C-w>l", term_opts)
+keymap("t", "<esc>", "<C-\\><C-N>", term_opts)
 
 -- Nvimtree
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
@@ -79,5 +80,8 @@ keymap("n", "<leader>g", ":LazyGit<cr>", opts)
 -- diagnostic view 
 keymap("n", "gK", ":DiagWindowShow<cr>", opts)
 
--- diagnostic view 
-keymap("n", "gt", ":ToggleTerm<cr>", opts)
+-- Toggleterm
+keymap("n", "gtf", ":ToggleTerm direction=float<cr>", opts)
+keymap("n", "gth", ":ToggleTerm direction=horizontal<cr>", opts)
+keymap("n", "gtv", ":ToggleTerm direction=vertical<cr>", opts)
+keymap("n", "gtt", ":ToggleTerm direction=tab<cr>", opts)
