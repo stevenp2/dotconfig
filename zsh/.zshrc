@@ -59,3 +59,5 @@ alias g='git status'
 alias brave='./opt/brave.com/brave &'
 alias firefox='firefox &'
 
+#neofetch
+alias neofetch='neofetch --ascii ~/.config/neofetch/monkey.txt'
