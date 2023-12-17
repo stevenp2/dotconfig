@@ -120,7 +120,11 @@ return lazy.setup({
   },-- urlview - a special plugin that gets to take up a lot of space
 
   { "kyazdani42/nvim-tree.lua",
+    version = "*",
     cmd = "NvimTreeToggle",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons"
+    },
     config = function() require("stevenp2.plugins.utils.nvim-tree").setup() end
   }, -- file explorer
 
