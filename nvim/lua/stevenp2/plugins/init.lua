@@ -158,11 +158,6 @@ return lazy.setup({
     config = function() require("stevenp2.plugins.ui.scrollbar").setup() end
   }, -- scrollbar
 
-  { "karb94/neoscroll.nvim",
-    event = "VeryLazy",
-    config = function() require("stevenp2.plugins.ui.neoscroll").setup() end
-  }, -- smoother scrolling experience
-
   { "b0o/incline.nvim",
     config = function() require("stevenp2.plugins.ui.incline").setup() end
   }, -- buffer management with multiple splits
