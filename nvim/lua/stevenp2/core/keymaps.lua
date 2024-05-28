@@ -71,8 +71,8 @@ keymap("t", "<C-w>k", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-w>l", "<C-\\><C-N><C-w>l", term_opts)
 keymap("t", "<esc>", "<C-\\><C-N>", term_opts)
 
--- Nvimtree
-keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+-- Oil
+keymap("n", "<leader>e", ":Oil<cr>", opts)
 
 -- Lazygit
 keymap("n", "<leader>g", ":LazyGit<cr>", opts)
