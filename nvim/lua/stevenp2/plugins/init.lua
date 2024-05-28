@@ -119,14 +119,14 @@ return lazy.setup({
     config = function() require("stevenp2.plugins.utils.urlview").setup() end
   },-- urlview - a special plugin that gets to take up a lot of space
 
-  { "kyazdani42/nvim-tree.lua",
-    version = "*",
-    cmd = "NvimTreeToggle",
+  { "stevearc/oil.nvim",
     dependencies = {
       "nvim-tree/nvim-web-devicons"
     },
-    config = function() require("stevenp2.plugins.utils.nvim-tree").setup() end
-  }, -- file explorer
+    cmd = "Oil",
+    config = function () require("stevenp2.plugins.utils.oil").setup() end,
+    opts = function () require("stevenp2.plugins.utils.oil").setup() end
+  }, -- file explorer (the vim way)
 
   {
     "stevearc/aerial.nvim",
