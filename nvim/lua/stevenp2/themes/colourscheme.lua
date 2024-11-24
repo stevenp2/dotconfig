@@ -2,7 +2,7 @@ local M = {}
 
 function M.setup()
   require("tokyonight").setup({
-    style = "moon", -- night|storm|moon|day
+    style = "storm", -- night|storm|moon|day
     terminal_colors = true,
     styles = {
     comments = {
@@ -25,10 +25,25 @@ function M.setup()
     on_highlights = function(highlights, colors) end,
   })
  
-   local colourscheme = "tokyonight"
-   vim.cmd("colorscheme " .. colourscheme)
-   vim.api.nvim_set_hl(0, 'LineNr', { fg = '#797c99', bold=true } )
-   vim.api.nvim_set_hl(0, 'Comment', { fg = '#797c99', bold=true } )
+  local colourscheme = "tokyonight"
+  vim.cmd("colorscheme " .. colourscheme)
+  -- vim.cmd("highlight Normal guibg=none")
+  vim.api.nvim_create_autocmd('ColorScheme', {
+    callback = function()
+      local highlights = {
+        'Normal',
+        'LineNr',
+        'Folded',
+        'NonText',
+        'SpecialKey',
+        'VertSplit',
+        'SignColumn',
+        'EndOfBuffer',
+        'TablineFill',
+      }
+      for _, name in pairs(highlights) do vim.cmd.highlight(name .. ' guibg=none ctermbg=none') end
+  end,
+  })
 end
 
 return M
