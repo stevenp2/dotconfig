@@ -128,11 +128,6 @@ return lazy.setup({
     opts = function () require("stevenp2.plugins.utils.oil").setup() end
   }, -- file explorer (the vim way)
 
-  {
-    "stevearc/aerial.nvim",
-    config = function() require("stevenp2.plugins.utils.aerial").setup() end
-  },
-
   -- TODO
   --[[ {"folke/which-key.nvim", ]]
   --[[   config = function() require("stevenp2.plugins.utils.which-key").setup() end ]]

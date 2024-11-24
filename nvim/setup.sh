@@ -15,7 +15,7 @@ fi
 
 action="install Neovim Python support"
 if ! $OS_PYTHON -c "import neovim" 2> /dev/null && confirm "$action"; then
-  $OS_PIP install pynvim
+  uv $OS_PIP install pynvim
 fi
 
 action="link config"
