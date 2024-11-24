@@ -83,7 +83,8 @@ keymap("n", "gK", ":DiagWindowShow<cr>", opts)
 -- Telescope
 keymap("n", "<leader>F", ":Telescope live_grep<cr>", opts)
 keymap("n", "<leader>O", ":Telescope find_files<cr>", opts)
-keymap("n", "<leader>R", ":Telescope resume<cr>", opts)
+keymap("n", "<leader>R", ":Telescope resume initial_mode=normal<cr>", opts)
+keymap("n", "<leader>b", ":Telescope buffers initial_mode=normal sort_mru=true sort_lastused=true<cr>", opts)
 
 -- Trouble
 keymap("n", "<leader>q", "<cmd>Trouble diagnostics toggle<CR>", opts)

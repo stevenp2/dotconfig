@@ -138,10 +138,6 @@ return lazy.setup({
     config = function() require("stevenp2.plugins.ui.gitsigns").setup() end
   }, -- signs to keep track of file edits for git
 
-  { "akinsho/bufferline.nvim",
-    config = function() require("stevenp2.plugins.ui.bufferline").setup() end
-  }, --stevenp2.plugins.ui.lualine
-
   { "petertriho/nvim-scrollbar",
     after = "folke/tokyonight",
     config = function() require("stevenp2.plugins.ui.scrollbar").setup() end

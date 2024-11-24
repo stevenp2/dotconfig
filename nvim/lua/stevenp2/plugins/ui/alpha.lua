@@ -41,7 +41,7 @@ function M.setup()
   require("alpha").setup(dashboard.config)
 
   vim.api.nvim_create_autocmd("FileType", {
-    desc = "Disable alpha colorcolumn, show alpha in bufferline",
+    desc = "Disable alpha colorcolumn",
     pattern = "alpha",
     callback = function()
       vim.bo.buflisted = true
