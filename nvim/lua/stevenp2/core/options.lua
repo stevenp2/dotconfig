@@ -34,6 +34,8 @@ vim.opt.guifont = "monospace:h17"               -- the font used in graphical ne
 vim.opt.cmdheight = 0                           --  remove cmd line when not used 
 vim.opt.relativenumber = true                   -- set relative line number
 vim.opt.cursorline = false                      -- remove cursorline from showing
+vim.opt.showtabline = 0                         -- hide filename display at the top
+vim.opt.wrap = true                             -- wrap around buffer
 
 vim.opt.shortmess:append "c"
 
