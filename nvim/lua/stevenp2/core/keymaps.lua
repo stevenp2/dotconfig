@@ -80,12 +80,6 @@ keymap("n", "<leader>g", ":LazyGit<cr>", opts)
 -- diagnostic view 
 keymap("n", "gK", ":DiagWindowShow<cr>", opts)
 
--- Toggleterm
-keymap("n", "gtf", ":ToggleTerm direction=float<cr>", opts)
-keymap("n", "gth", ":ToggleTerm direction=horizontal<cr>", opts)
-keymap("n", "gtv", ":ToggleTerm direction=vertical<cr>", opts)
-keymap("n", "gtt", ":ToggleTerm direction=tab<cr>", opts)
-
 -- Telescope
 keymap("n", "<leader>F", ":Telescope live_grep<cr>", opts)
 keymap("n", "<leader>O", ":Telescope find_files<cr>", opts)
