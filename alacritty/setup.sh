@@ -24,7 +24,7 @@ if confirm "$action"; then
   if is_linux; then
     link_config $HOME/dotconfig/alacritty/alacritty-linux.toml $HOME/.config/alacritty/alacritty.toml
   elif is_mac; then
-    link_config $HOME/dotconfig/alacritty/alacritty-mac.yml $HOME/.config/alacritty/alacritty.yml
+    link_config $HOME/dotconfig/alacritty/alacritty-mac.toml $HOME/.config/alacritty/alacritty.toml
   else
     echo "invalid OSTYPE $OSTYPE for alacritty setup"
   fi
