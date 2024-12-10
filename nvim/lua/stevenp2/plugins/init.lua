@@ -143,10 +143,6 @@ return lazy.setup({
     config = function() require("stevenp2.plugins.ui.scrollbar").setup() end
   }, -- scrollbar
 
-  { "b0o/incline.nvim",
-    config = function() require("stevenp2.plugins.ui.incline").setup() end
-  }, -- buffer management with multiple splits
-
   { "nvim-lualine/lualine.nvim",
     after = "folke/tokyonight",
     config = function() require("stevenp2.plugins.ui.lualine").setup() end
