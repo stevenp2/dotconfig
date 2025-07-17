@@ -27,24 +27,6 @@ function M.setup()
       capabilities = require("stevenp2.plugins.lsp.handlers").capabilities,
   }
 
-  local ls_status_ok, ls = pcall(require, "luasnip")
-  if not ls_status_ok then
-    return
-  end
-
-  -- escape snippets when changing modes
-  vim.api.nvim_create_autocmd('ModeChanged', {
-  pattern = '*',
-  callback = function()
-    if ((vim.v.event.old_mode == 's' and vim.v.event.new_mode == 'n') or vim.v.event.old_mode == 'i')
-        and ls.session.current_nodes[vim.api.nvim_get_current_buf()]
-        and not ls.session.jump_active
-    then
-      ls.unlink_current()
-    end
-  end
-  })
-
   if server == "jsonls" then
     local jsonls_opts = require("stevenp2.plugins.lsp.settings.jsonls")
   	opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
