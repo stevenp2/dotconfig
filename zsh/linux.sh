@@ -7,5 +7,5 @@ function brightness() {
 
 ### aliases
 # restart hid devices
-alias ubsr='sudo modprobe -r usbhid && sudo modprobe usbhid'
+alias usbr='sudo modprobe -r usbhid && sudo modprobe usbhid'
 
