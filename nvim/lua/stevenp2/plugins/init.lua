@@ -23,6 +23,14 @@ end
 
 -- Install your plugins here
 return lazy.setup({
+  -- ColourSchemes
+  { "folke/tokyonight.nvim",
+    priority = 1000,
+    config = function()
+      require("stevenp2.themes.colourscheme").setup()
+    end
+  },
+
   -- My plugins here
   "nvim-lua/popup.nvim", -- An implementation of the Popup API from vim in Neovim
   "nvim-lua/plenary.nvim", -- Useful lua functions used ny lots of plugins
@@ -43,9 +51,6 @@ return lazy.setup({
     "ellisonleao/glow.nvim", -- md viewer
   { "akinsho/toggleterm.nvim", version = "*"}, -- toggle terminal ]]
   -- TODO [[ "folke/which-key.nvim", -- viewing keymap ]]
-
-  -- ColourSchemes
-  { "folke/tokyonight.nvim", lazy=false}, -- Colourscheme plugin
 
   -- cmp plugins
   "hrsh7th/nvim-cmp",
