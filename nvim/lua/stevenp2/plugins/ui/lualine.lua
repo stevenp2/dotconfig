@@ -172,7 +172,7 @@ function M.setup()
   		lualine_b = { mode },
   		lualine_c = { mode_icon, file_name, lsp_info},
   		-- lualine_x = { "encoding", "fileformat", "filetype" },
-  		lualine_x = { diff, spaces, "encoding", filetype },
+  		lualine_x = { "searchcount" ,diff, spaces, "encoding", filetype },
   		lualine_y = { location },
   		lualine_z = { progress },
   	},
