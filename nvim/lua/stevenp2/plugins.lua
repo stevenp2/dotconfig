@@ -55,6 +55,8 @@ return packer.startup(function(use)
   use "b0o/incline.nvim" -- buffer management with multiple splits
   use "petertriho/nvim-scrollbar" -- scrollbar
   use "lukas-reineke/indent-blankline.nvim" -- view degree of indentation
+  use "karb94/neoscroll.nvim" -- smoother scrolling experience
+
   use {
     'goolord/alpha-nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
