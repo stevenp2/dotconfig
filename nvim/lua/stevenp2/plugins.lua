@@ -89,6 +89,26 @@ return packer.startup(function(use)
   -- autopairs
   use "windwp/nvim-autopairs" -- autopairing of parens, braces, etc.
 
+  -- Latex
+  use({
+    "lervag/vimtex",
+    ft = {
+      "tex",
+      "bib"
+    },
+    config = require("stevenp2.tex.vimtex")
+  })
+
+  use({
+    "ludovicchabant/vim-gutentags",
+    ft = { "tex" },
+    config = require("stevenp2.tex.gutentags")
+  })
+
+  use({
+   "SirVer/ultisnips",
+    config = require("stevenp2.tex.ultisnips")
+  })
 
 
   -- Automatically set up your configuration after cloning packer.nvim
