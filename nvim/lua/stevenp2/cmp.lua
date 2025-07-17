@@ -101,7 +101,7 @@ cmp.setup {
       vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
       -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
       vim_item.menu = ({
-        ultisnips = "[ultiSnip]",
+        nvim_lsp = "[LSP]",
         luasnip = "[luaSnip]",
         buffer = "[Buffer]",
         path = "[Path]",
@@ -110,6 +110,7 @@ cmp.setup {
     end,
   },
   sources = {
+    { name = 'nvim_lsp'},
     { name = "luasnip" },
     { name = "buffer" },
     { name = "path" },
@@ -118,10 +119,10 @@ cmp.setup {
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
   },
-
- -- documentation = {
- --   border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }, 
- -- },
+  window = {
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
+  },
   experimental = {
     ghost_text = true,
     native_menu = false,
