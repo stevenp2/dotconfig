@@ -11,9 +11,41 @@ vim.g.vimtex_syntax_conceal_disable = 1
 -- Disable quickfix auto open
 -- vim.g.vimtex_quickfix_ignore_mode = 0
 
+-- get os
+function os.capture(cmd, raw)
+  local handle = assert(io.popen(cmd, 'r'))
+  local output = assert(handle:read('*a'))
+
+  handle:close()
+
+  if raw then
+      return output
+  end
+
+  output = string.gsub(
+      string.gsub(
+          string.gsub(output, '^%s+', ''),
+          '%s+$',
+          ''
+      ),
+      '[\n\r]+',
+      ' '
+  )
+
+ return output
+end
+
+local os = os.capture("echo $(uname)", false)
+
+
 -- PDF viewer settings
-vim.g.vimtex_view_general_viewer = "/Applications/Skim.app/Contents/SharedSupport/displayline"
-vim.g.vimtex_view_general_options = "-r @line @pdf @tex"
+if os == "Linux" then
+  vim.g.vimtex_view_general_viewer = "zathura"
+else
+  vim.g.vimtex_view_general_viewer = "/Applications/Skim.app/Contents/SharedSupport/displayline"
+  vim.g.vimtex_view_general_options = "-r @line @pdf @tex"
+end
+
 
 -- Do not auto open quickfix on compile erros
 -- vim.g.vimtex_quickfix_mode = 0

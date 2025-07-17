@@ -1,4 +1,4 @@
-local urlview_status_ok, urlview = pcall(require, "urlview") 
+local urlview_status_ok, urlview = pcall(require, "urlview")
 
 if not urlview_status_ok then
   return
