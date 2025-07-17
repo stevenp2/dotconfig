@@ -95,16 +95,6 @@ function M.on_attach(bufnr)
   end, opts('Print Node Path'))
 
   vim.keymap.set('n', 'Z', api.node.run.system, opts('Run System'))
-
-
-
-
-
-
-
-
-
-
 end
 
 function M.setup()
