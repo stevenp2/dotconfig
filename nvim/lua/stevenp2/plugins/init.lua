@@ -23,7 +23,9 @@ end
 
 -- Install your plugins here
 return lazy.setup({
-  -- ColourSchemes
+  -------------------------------
+  -- colourscheme
+  -------------------------------
   { "folke/tokyonight.nvim",
     priority = 1000,
     config = function()
@@ -133,7 +135,7 @@ return lazy.setup({
   },
 
   -- cmp
-  {"hrsh7th/nvim-cmp",
+  { "hrsh7th/nvim-cmp",
     config = function() require("stevenp2.plugins.lsp.cmp").setup() end
   },
   "hrsh7th/cmp-buffer", -- buffer completions
@@ -160,7 +162,7 @@ return lazy.setup({
   },
 
   -- Rust
-  {"simrat39/rust-tools.nvim",
+  { "simrat39/rust-tools.nvim",
     dependencies = {
       "neovim/nvim-lspconfig"
     }
@@ -169,16 +171,16 @@ return lazy.setup({
   -------------------------------
   -- Treesitter
   -------------------------------
-  {"nvim-treesitter/nvim-treesitter",
+  { "nvim-treesitter/nvim-treesitter",
     config = function() require("stevenp2.plugins.treesitter.treesitter").setup() end
   },
+
   "JoosepAlviste/nvim-ts-context-commentstring", -- comment string based on context
 
   -- autopairs
-  {"windwp/nvim-autopairs",
+  { "windwp/nvim-autopairs",
     config = function() require("stevenp2.plugins.treesitter.autopairs").setup() end
   }, -- autopairing of parens, braces, etc.
-
 
   -------------------------------
   -- others
