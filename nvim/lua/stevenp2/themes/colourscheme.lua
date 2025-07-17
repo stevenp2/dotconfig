@@ -3,7 +3,6 @@ local M = {}
 function M.setup()
   require("tokyonight").setup({
     style = "moon", -- night|storm|moon|day
-    transparent = true,
     terminal_colors = true,
     styles = {
       comments = "italic",
