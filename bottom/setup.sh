@@ -20,7 +20,7 @@ if confirm "$action"; then
   if is_linux; then
     link_config "$HOME/dotconfig/bottom/bottom.toml" "$HOME/.config/bottom/bottom.toml"
   elif is_mac; then
-    link_config "$HOME/dotconfig/bottom/bottom.toml" "$HOME/Library/Application Support/bottom/bottom.toml"
+    link_config "$HOME/dotconfig/bottom/bottom.toml" "/Library/Application?Support/lazygit/config.yml" true
   else
     echo "Failed to $action: unsupported OS"
   fi
