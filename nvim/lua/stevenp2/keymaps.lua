@@ -79,3 +79,6 @@ keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
 -- Lazygit
 keymap("n", "<leader>g", ":LazyGit<cr>", opts)
+
+-- diagnostic view 
+keymap("n", "gK", ":DiagWindowShow<cr>", opts)
