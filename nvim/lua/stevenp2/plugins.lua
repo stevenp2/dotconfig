@@ -53,7 +53,7 @@ return packer.startup(function(use)
   use "nvim-lualine/lualine.nvim" -- for status line at bottom
   use "stevearc/dressing.nvim" -- wrapper around vim calls
   use "b0o/incline.nvim" -- buffer management with multiple splits
-
+  use "petertriho/nvim-scrollbar" -- scrollbar
   use {
     'goolord/alpha-nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
@@ -76,7 +76,7 @@ return packer.startup(function(use)
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   -- urlview
-  use ({"axieax/urlview.nvim",
+  use {"axieax/urlview.nvim",
     config = function()
       require("urlview").setup({
         -- Prompt title (`<context> <default_title>`, e.g. `Buffer Links:`)
@@ -107,7 +107,7 @@ return packer.startup(function(use)
         },
       })
     end
-  })
+  }
 
   -- lsp
   use "neovim/nvim-lspconfig" -- enable lsp
