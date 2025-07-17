@@ -24,6 +24,7 @@ function M.setup()
   local colourscheme = "tokyonight"
   vim.cmd("colorscheme " .. colourscheme)
   vim.api.nvim_set_hl(0, 'LineNr', { fg = '#797c99', bold=true } )
+  vim.api.nvim_set_hl(0, 'Comment', { fg = '#797c99', bold=true } )
 end
 
 return M
