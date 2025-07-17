@@ -11,7 +11,9 @@ M.servers = {
     "bashls",
     "gopls",
     "tsserver",
-    "eslint"
+    "eslint",
+    "yamlls",
+    "terraformls"
   }
 
 function M.setup()
@@ -46,6 +48,11 @@ function M.setup()
 
   if server == "texlab" then
   	require("stevenp2.plugins.lsp.settings.vimtex")
+  end
+
+  if server == "yamlls" then
+    local yamlls_opts = require("stevenp2.plugins.lsp.settings.yamlls")
+    opts = vim.tbl_deep_extend("force", yamlls_opts, opts)
   end
 
   if server == "rust_analyzer" then
