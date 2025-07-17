@@ -91,8 +91,5 @@ keymap("n", "<leader>F", ":Telescope live_grep<cr>", opts)
 keymap("n", "<leader>O", ":Telescope find_files<cr>", opts)
 keymap("n", "<leader>R", ":Telescope resume<cr>", opts)
 
--- Aerial
-keymap("n", "<leader>a", ":AerialToggle<cr>", opts)
-
 -- Trouble
 keymap("n", "<leader>q", "<cmd>Trouble diagnostics toggle<CR>", opts)
