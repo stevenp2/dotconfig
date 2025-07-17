@@ -108,12 +108,6 @@ return lazy.setup({
     }
   }, -- running lazygit in nvim
 
-  { "akinsho/toggleterm.nvim",
-    version = "*",
-    cmd = "ToggleTerm",
-    config = function() require("stevenp2.plugins.utils.toggleterm").setup() end
-  }, -- toggle terminal
-
   { "axieax/urlview.nvim",
     cmd = "UrlView",
     config = function() require("stevenp2.plugins.utils.urlview").setup() end
