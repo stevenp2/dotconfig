@@ -201,7 +201,6 @@ _G.packer_plugins = {
     url = "https://github.com/folke/tokyonight.nvim"
   },
   ultisnips = {
-    config = { "\27LJ\2\n˘\1\0\0\2\0\t\0\0216\0\0\0009\0\1\0)\1\0\0=\1\2\0006\0\0\0009\0\1\0)\1\0\0=\1\3\0006\0\0\0009\0\1\0'\1\5\0=\1\4\0006\0\0\0009\0\1\0'\1\5\0=\1\6\0006\0\0\0009\0\1\0'\1\b\0=\1\a\0K\0\1\0\f<S-tab>!UltiSnipsJumpBackwardTrigger UltiSnipsJumpForwardTrigger\n<tab>\27UltiSnipsExpandTrigger&UltiSnipsRemoveSelectModeMappings\28UltiSnipsEnableSnipMate\6g\bvim\0" },
     loaded = true,
     path = "/Users/steven/.local/share/nvim/site/pack/packer/start/ultisnips",
     url = "https://github.com/SirVer/ultisnips"
@@ -212,7 +211,6 @@ _G.packer_plugins = {
     url = "https://github.com/moll/vim-bbye"
   },
   ["vim-gutentags"] = {
-    config = { "\27LJ\2\n»\1\0\0\2\0\6\0\0176\0\0\0009\0\1\0)\1\1\0=\1\2\0006\0\0\0009\0\1\0)\1\1\0=\1\3\0006\0\0\0009\0\1\0)\1\1\0=\1\4\0006\0\0\0009\0\1\0)\1\0\0=\1\5\0K\0\1\0'gutentags_generate_on_empty_buffer\"gutentags_generate_on_missing gutentags_generate_on_write\30gutentags_generate_on_new\6g\bvim\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -220,7 +218,6 @@ _G.packer_plugins = {
     url = "https://github.com/ludovicchabant/vim-gutentags"
   },
   vimtex = {
-    config = { "\27LJ\2\nè\16\0\0\4\0002\0W6\0\0\0009\0\1\0)\1\0\0=\1\2\0006\0\0\0009\0\1\0)\1\0\0=\1\3\0006\0\0\0009\0\1\0005\1\5\0=\1\4\0006\0\0\0009\0\1\0)\1\0\0=\1\6\0006\0\0\0009\0\1\0'\1\b\0=\1\a\0006\0\0\0009\0\1\0'\1\n\0=\1\t\0006\0\0\0009\0\1\0)\1\0\0=\1\v\0006\0\0\0009\0\1\0005\1\r\0=\1\f\0006\0\0\0009\0\1\0)\1\1\0=\1\14\0006\0\0\0009\0\1\0)\1\1\0=\1\15\0006\0\0\0009\0\1\0005\1\20\0005\2\18\0005\3\17\0=\3\19\2=\2\21\0015\2\23\0005\3\22\0=\3\19\2=\2\24\0015\2\26\0005\3\25\0=\3\19\2=\2\27\0015\2\29\0005\3\28\0=\3\19\2=\2\30\0015\2\31\0=\2 \0016\2\0\0009\2!\2B\2\1\2=\2\"\0015\2#\0004\3\0\0=\3$\0025\3%\0=\3&\2=\2'\0015\2(\0=\2)\0016\2\0\0009\2!\2B\2\1\2=\2*\0015\2+\0=\2,\0015\2-\0005\3.\0=\3/\0025\0030\0=\0031\2=\0021\1=\1\16\0K\0\1\0\rsections\1\a\0\0\16%(add)?part\23%(chapter|addchap)\25%(section|section\\*)\31%(subsection|subsection\\*)%%(subsubsection|subsubsection\\*)\14paragraph\nparts\1\5\0\0\rappendix\16frontmatter\15mainmatter\15backmatter\1\0\1\17parse_levels\3\0\rpreamble\1\0\1\fenabled\3\0\fmarkers\nitems\1\0\1\fenabled\3\0\tenvs\14whitelist\1\6\0\0\vfigure\nframe\ntable\fexample\vanswer\14blacklist\1\0\0\16env_options\15empty_dict\rcomments\1\0\1\fenabled\3\0\19cmd_single_opt\1\0\0\1\3\0\0\15usepackage\15includepdf\15cmd_single\1\0\0\1\5\0\0\15hypersetup\ftikzset\22pgfplotstableread\vlstset\14cmd_multi\1\0\0\1\6\0\0$%(re)?new%(command|environment)\19providecommand\15presetkeys%Declare%(Multi|Auto)?CiteCommand6Declare%(Index)?%(Field|List|Name)%(Format|Alias)\16cmd_addplot\1\0\0\tcmds\1\0\0\1\2\0\0\17addplot[+3]?\22vimtex_fold_types\23vimtex_fold_manual\24vimtex_fold_enabled\1\r\0\0\"Command terminated with space#LaTeX Font Warning: Font shape(Package caption Warning: The option)Underfull \\\\hbox (badness [0-9]*) in2Package enumitem Warning: Negative labelwidth2Overfull \\\\hbox ([0-9]*.[0-9]*pt too wide) in3Package caption Warning: Unused \\\\captionsetup6Package typearea Warning: Bad type area settings!8Package fancyhdr Warning: \\\\headheight is too small<Underfull \\\\hbox (badness [0-9]*) in paragraph at lines@Package hyperref Warning: Token not allowed in a PDF stringEOverfull \\\\hbox ([0-9]*.[0-9]*pt too wide) in paragraph at lines#vimtex_quickfix_ignore_filters\25vimtex_quickfix_mode\23-r @line @pdf @tex vimtex_view_general_options>/Applications/Skim.app/Contents/SharedSupport/displayline\31vimtex_view_general_viewer vimtex_quickfix_ignore_mode\1\0\v\15math_fracs\3\0\20math_delimiters\3\0\16math_bounds\3\0\ngreek\3\0\nfancy\3\0\ncites\3\0\faccents\3\0\rsections\3ˇˇˇˇ\15\vstyles\3\0\17math_symbols\3\0\19math_super_sub\3\0\26vimtex_syntax_conceal\26vimtex_view_automatic\25vimtex_imaps_enabled\6g\bvim\0" },
     loaded = false,
     needs_bufread = true,
     only_cond = false,
@@ -234,16 +231,12 @@ time([[Defining packer_plugins]], false)
 time([[Config for alpha-nvim]], true)
 try_loadstring("\27LJ\2\nL\0\0\2\0\6\0\t6\0\0\0009\0\1\0+\1\2\0=\1\2\0006\0\0\0009\0\3\0'\1\5\0=\1\4\0K\0\1\0\5\16colorcolumn\awo\14buflisted\abo\bvim≤\v\1\0\b\0-\1P6\0\0\0'\2\1\0B\0\2\0029\1\2\0009\1\3\0015\2\5\0=\2\4\0019\1\2\0009\1\6\0014\2\n\0009\3\a\0'\5\b\0'\6\t\0'\a\n\0B\3\4\2>\3\1\0029\3\a\0'\5\v\0'\6\f\0'\a\r\0B\3\4\2>\3\2\0029\3\a\0'\5\14\0'\6\15\0'\a\16\0B\3\4\2>\3\3\0029\3\a\0'\5\17\0'\6\18\0'\a\19\0B\3\4\2>\3\4\0029\3\a\0'\5\20\0'\6\21\0'\a\22\0B\3\4\2>\3\5\0029\3\a\0'\5\23\0'\6\24\0'\a\25\0B\3\4\2>\3\6\0029\3\a\0'\5\26\0'\6\27\0'\a\28\0B\3\4\2>\3\a\0029\3\a\0'\5\29\0'\6\30\0'\a\31\0B\3\4\2>\3\b\0029\3\a\0'\5 \0'\6!\0'\a\"\0B\3\4\0?\3\0\0=\2\4\0016\1\0\0'\3#\0B\1\2\0029\1$\0019\3%\0B\1\2\0016\1&\0009\1'\0019\1(\1'\3)\0005\4*\0003\5+\0=\5,\4B\1\3\1K\0\1\0\rcallback\0\1\0\2\tdesc8Disable alpha colorcolumn, show alpha in bufferline\fpattern\nalpha\rFileType\24nvim_create_autocmd\bapi\bvim\vconfig\nsetup\nalpha\16<Cmd>qa<CR>\21‚èª  Quit Neovim\6q\24<Cmd>PackerSync<CR>\24Ôë™  Update Plugins\6u3<Cmd>e ~/.config/nvim/lua/plugins/init.lua<CR>\22Ô´∏ Neovim Config\6c)<Cmd>SessionManager load_session<CR>\23Ô°ß  Find Sessions\6S.<Cmd>SessionManager load_last_session<CR>\25Óçà  Restore Session\6s <Cmd>Telescope oldfiles<CR>\22ÔíÑ  Recent Files\6o!<Cmd>Telescope live_grep<CR>\19ÓâÖ  Live Grep\6g\"<Cmd>Telescope find_files<CR>\20Ô°à  Find Files\6f#<Cmd>ene <BAR> startinsert<CR>\18Ôúì  New File\6n\vbutton\fbuttons\1\t\0\0>          __                                   ________  >  _______/  |_  _______  __ ____   ____ ______ \\_____  \\ > /  ___/\\   __\\/ __ \\  \\/ // __ \\ /    \\\\____ \\ /  ____/ > \\___ \\  |  | \\  ___/\\   /\\  ___/|   |  \\  |_> >       \\ >/____  > |__|  \\___  >\\_/  \\___  >___|  /   __/\\_______ \\>     \\/            \\/          \\/     \\/|__|           \\/>                                                         >       > Press [s] to restore your last session <        \bval\vheader\fsection\27alpha.themes.dashboard\frequire\19ÄÄ¿ô\4\0", "config", "alpha-nvim")
 time([[Config for alpha-nvim]], false)
--- Config for: ultisnips
-time([[Config for ultisnips]], true)
-try_loadstring("\27LJ\2\n˘\1\0\0\2\0\t\0\0216\0\0\0009\0\1\0)\1\0\0=\1\2\0006\0\0\0009\0\1\0)\1\0\0=\1\3\0006\0\0\0009\0\1\0'\1\5\0=\1\4\0006\0\0\0009\0\1\0'\1\5\0=\1\6\0006\0\0\0009\0\1\0'\1\b\0=\1\a\0K\0\1\0\f<S-tab>!UltiSnipsJumpBackwardTrigger UltiSnipsJumpForwardTrigger\n<tab>\27UltiSnipsExpandTrigger&UltiSnipsRemoveSelectModeMappings\28UltiSnipsEnableSnipMate\6g\bvim\0", "config", "ultisnips")
-time([[Config for ultisnips]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType tex ++once lua require("packer.load")({'vim-gutentags', 'vimtex'}, { ft = "tex" }, _G.packer_plugins)]]
 vim.cmd [[au FileType bib ++once lua require("packer.load")({'vimtex'}, { ft = "bib" }, _G.packer_plugins)]]
+vim.cmd [[au FileType tex ++once lua require("packer.load")({'vim-gutentags', 'vimtex'}, { ft = "tex" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]
