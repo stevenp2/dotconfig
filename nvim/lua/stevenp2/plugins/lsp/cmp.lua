@@ -13,7 +13,7 @@ vim.api.nvim_create_user_command("LuaSnipEdit", lua_loader.edit_snippet_files, {
 vim.keymap.set("n", "\\S", "<Cmd>LuaSnipEdit<CR>", { silent = true })
 
 --[[ require("luasnip.loaders.from_vscode").lazy_load() ]]
-require("luasnip.loaders.from_lua").lazy_load({ paths = {"~/dotconfig/nvim/lua/stevenp2/lsp/snippets" }})
+require("luasnip.loaders.from_lua").lazy_load({ paths = {"~/dotconfig/nvim/lua/stevenp2/plugins/lsp/snippets" }})
 
 local check_backspace = function()
   local col = vim.fn.col "." - 1
