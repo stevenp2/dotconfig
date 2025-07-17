@@ -29,8 +29,7 @@ vim.g.maplocalleader = " "
 keymap("n", "<esc><esc>", ":noh<return>", opts)
 
 -- rename
---[[ keymap("n", "gr", ":Lspsaga rename<CR>", opts) ]]
-vim.keymap.set("n", "gr", ":Lspsaga rename<CR>", { silent = true, noremap = true})
+keymap("n", "gr", ":Lspsaga rename<CR>", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
