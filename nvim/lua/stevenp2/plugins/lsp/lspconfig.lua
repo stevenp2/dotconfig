@@ -10,7 +10,7 @@ M.servers = {
     "marksman",
     "bashls",
     "gopls",
-    "tsserver",
+    "ts_ls",
     "eslint",
     "yamlls",
     "terraformls"
@@ -30,11 +30,6 @@ function M.setup()
       on_attach = require("stevenp2.plugins.lsp.handlers").on_attach,
       capabilities = require("stevenp2.plugins.lsp.handlers").capabilities,
   }
-
-  if server == "tsserver" then
-    local tsserver_opts = require("stevenp2.plugins.lsp.settings.tsserver")
-    opts = vim.tbl_deep_extend("force", tsserver_opts, opts)
-  end
 
   if server == "jsonls" then
     local jsonls_opts = require("stevenp2.plugins.lsp.settings.jsonls")
