@@ -48,6 +48,10 @@ local lazy_config = {
       paths = {}, -- add any custom paths here that you want to includes in the rtp
       ---@type string[] list any plugins you want to disable here
       disabled_plugins = {
+        "netrw",
+        "netrwPlugin",
+        "netrwSettings",
+        "netrwFileHandlers",
         "gzip",
         "matchit",
         "matchparen",
@@ -55,7 +59,14 @@ local lazy_config = {
         "tarPlugin",
         "tohtml",
         "tutor",
+        "zip",
         "zipPlugin",
+        "tar",
+        "tarPlugin",
+        "vimball",
+        "vimballPlugin",
+        "logipat",
+        "spellfile_plugin",
       },
     },
   },
@@ -226,6 +237,9 @@ return lazy.setup({
   -- Treesitter
   -------------------------------
   { "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+      "kevinhwang91/nvim-ufo"
+    },
     config = function() require("stevenp2.plugins.treesitter.treesitter").setup() end
   },
 
@@ -233,12 +247,16 @@ return lazy.setup({
     lazy = true
   }, -- comment string based on context
 
-  -- autopairs
   { "windwp/nvim-autopairs",
     event = "InsertEnter",
     config = function() require("stevenp2.plugins.treesitter.autopairs").setup() end
   }, -- autopairing of parens, braces, etc.
 
+  { 'kevinhwang91/nvim-ufo',
+    dependencies = 'kevinhwang91/promise-async',
+    event = "InsertEnter",
+    config = function() require("stevenp2.plugins.treesitter.ufo").setup() end
+  }, -- folding
 
   -------------------------------
   -- others
