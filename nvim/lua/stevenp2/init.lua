@@ -11,3 +11,8 @@ require("stevenp2.comment")
 require("stevenp2.gitsigns")
 require("stevenp2.nvim-tree")
 require("stevenp2.bufferline")
+
+-- latex stuff
+require("stevenp2.tex.vimtex")
+require("stevenp2.tex.gutentags")
+require("stevenp2.tex.ultisnips")
