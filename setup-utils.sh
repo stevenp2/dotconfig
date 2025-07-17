@@ -56,3 +56,9 @@ link_config() {
   backup_dst_config $dst $as_user
   $as_user $command "$src" "$dst"
 }
+
+get_latest_release() {
+  curl --silent "https://api.github.com/repos/$1/releases/latest" | # Get latest release from GitHub api
+  grep '"tag_name":' |                                            # Get tag line
+  sed -E 's/.*"([^"]+)".*/\1/' | tr -d '\n'                                    # Pluck JSON value
+}
