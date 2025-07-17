@@ -28,6 +28,11 @@ function M.setup()
       capabilities = require("stevenp2.plugins.lsp.handlers").capabilities,
   }
 
+  if server == "tsserver" then
+    local tsserver_opts = require("stevenp2.plugins.lsp.settings.tsserver")
+    opts = vim.tbl_deep_extend("force", tsserver_opts, opts)
+  end
+
   if server == "jsonls" then
     local jsonls_opts = require("stevenp2.plugins.lsp.settings.jsonls")
   	opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
