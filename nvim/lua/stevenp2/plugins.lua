@@ -46,6 +46,8 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "numtoStr/Comment.nvim" -- comment things easily
   use "lewis6991/gitsigns.nvim" -- signs to keep track of file edits for git
+  use "kyazdani42/nvim-web-devicons" -- icons used in plugins
+  use "kyazdani42/nvim-tree.lua" -- file explorer
 
   -- ColourSchemes
   use "folke/tokyonight.nvim" -- Colourscheme plugin
