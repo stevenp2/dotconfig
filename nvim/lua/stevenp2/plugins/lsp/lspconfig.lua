@@ -4,12 +4,13 @@ M.servers = {
     "lua_ls",
     "pyright",
     "clangd",
-    "rome",
     "texlab",
     "rust_analyzer",
     "taplo",
     "marksman",
-    "bashls"
+    "bashls",
+    "gopls",
+    "tsserver"
   }
 
 function M.setup()
