@@ -185,8 +185,8 @@ return lazy.setup({
     end
   }, -- enable lsp
 
-  { "williamboman/nvim-lsp-installer",
-    cmd = "LspInstallInfo",
+  { "williamboman/mason.nvim",
+    require("stevenp2.plugins.lsp.mason").setup()
   }, -- simple lsp installer
 
   { "folke/trouble.nvim",
