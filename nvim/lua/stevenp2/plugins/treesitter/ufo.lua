@@ -1,9 +1,7 @@
 local M = {}
 
-vim.o.foldcolumn = '1'
 vim.o.foldlevel = 99 -- hack way of doing it
-vim.o.foldlevelstart = 99
-vim.o.foldenable = true
+vim.o.foldlevelstart = 99 -- change to 1 if want folding when opening file
 
 function M.handler(virtText, lnum, endLnum, width, truncate)
   local newVirtText = {}
