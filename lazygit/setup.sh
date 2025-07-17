@@ -1,5 +1,5 @@
 #!/bin/bash
-source "$HOME/dotconfig/setup-utilities.sh"
+source "$HOME/dotconfig/setup-utils.sh"
 
 action="install lazygit"
 if ! check_dependency lazygit; then
