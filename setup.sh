@@ -18,5 +18,4 @@ setup_app nvim
 setup_app lazygit
 setup_app alacritty
 setup_app bottom
-
-echo "andy"
+setup_app neofetch
