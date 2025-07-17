@@ -8,7 +8,8 @@ M.servers = {
     "texlab",
     "rust_analyzer",
     "taplo",
-    "marksman"
+    "marksman",
+    "bashls"
   }
 
 function M.setup()
