@@ -102,10 +102,7 @@ return packer.startup(function(use)
       { "kdheepak/lazygit.nvim" }, -- running lazygit in nvim
       { "nvim-lua/plenary.nvim" } -- Useful lua functions used ny lots of plugins
     },
-    config = function()
-        require("telescope").load_extension("lazygit")
-      end,
-    })
+  })
   use "nvim-telescope/telescope-media-files.nvim" -- view media in telescope
 
   -- Treesitter
