@@ -3,7 +3,7 @@ local M = {}
 function M.setup()
   require("tokyonight").setup({
     style = "moon", -- night|storm|moon|day
-    transparent = false,
+    transparent = true,
     terminal_colors = true,
     styles = {
       comments = "italic",
@@ -24,6 +24,7 @@ function M.setup()
 
   local colourscheme = "tokyonight"
   vim.cmd("colorscheme " .. colourscheme)
+  vim.api.nvim_set_hl(0, 'LineNr', { fg = '#797c99', bold=true } )
 end
 
 return M

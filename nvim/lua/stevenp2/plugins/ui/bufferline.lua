@@ -78,7 +78,7 @@ function M.setup()
     highlights = {
       fill = {
         fg = { attribute = "fg", highlight = "#ff0000" },
-        bg = { attribute = "bg", highlight = "TabLine" },
+        bg = { attribute = "bg", highlight = "" },
       },
       background = {
         fg = { attribute = "fg", highlight = "TabLine" },
