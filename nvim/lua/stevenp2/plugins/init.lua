@@ -128,6 +128,11 @@ return lazy.setup({
     config = function() require("stevenp2.plugins.utils.nvim-tree").setup() end
   }, -- file explorer
 
+  {
+    "stevearc/aerial.nvim",
+    config = function() require("stevenp2.plugins.utils.aerial").setup() end
+  },
+
   -- TODO
   --[[ {"folke/which-key.nvim", ]]
   --[[   config = function() require("stevenp2.plugins.utils.which-key").setup() end ]]
