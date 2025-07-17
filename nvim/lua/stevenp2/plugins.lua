@@ -48,6 +48,8 @@ return packer.startup(function(use)
   use "lewis6991/gitsigns.nvim" -- signs to keep track of file edits for git
   use "kyazdani42/nvim-web-devicons" -- icons used in plugins
   use "kyazdani42/nvim-tree.lua" -- file explorer
+  use "akinsho/bufferline.nvim" -- buffer tabs for nvim
+  use "moll/vim-bbye" -- allow for deletion of buffer
 
   -- ColourSchemes
   use "folke/tokyonight.nvim" -- Colourscheme plugin
