@@ -13,7 +13,7 @@ if confirm "$action"; then
     rm -r $NERDFONT-NF
     fc-cache -fv 
   elif is_mac; then
-    brew tap homebrew/cask-fonts && brew install --cask font-hack-nerd-font
+    brew install font-hack-nerd-font
   else
     echo "Failed to $action: unsupported OS"
   fi
