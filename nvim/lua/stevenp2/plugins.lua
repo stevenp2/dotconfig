@@ -113,6 +113,18 @@ return packer.startup(function(use)
   use "neovim/nvim-lspconfig" -- enable lsp
   use "williamboman/nvim-lsp-installer" -- simple lsp installer
   use "glepnir/lspsaga.nvim" -- lsp plugin that is lightweight
+  -- lsp: diagnostics
+  use {
+    "folke/trouble.nvim",
+    requires = {"kyazdani42/nvim-web-devicons"} 
+  }
+  use {
+    "cseickel/diagnostic-window.nvim",
+    requires = { "MunifTanjim/nui.nvim" }
+  }
+
+
+  -- prettier diagnostics
 
   -- Telescope
   use({
