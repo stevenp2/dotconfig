@@ -42,13 +42,14 @@ local preamble = [[
     \usepackage{pdfpages}
     \usepackage{indentfirst}
     \usepackage{hyperref}
+    \usepackage{enumitem}
 
     % get rid of indent
     \setlength{\parindent}{0pt}
     \pagestyle{fancy}
 
     \renewcommand{\vec}[1]{\mathbf{#1}}
-    \renewcommand{\labelitemi}{$\Rightarrow$}
+    % \renewcommand{\labelitemi}{$\circ$}
 
     \pdfsuppresswarningpagegroup=1
 
@@ -64,7 +65,7 @@ local preamble = [[
 
     \theoremstyle{remark}
     \newtheorem{rem}[thm]{Remark}
-    \newcommand{\nt}[1]{\fbox{\parbox{\textwidth - 0.1in}{\fbox{\textbf{Note:-}} \par #1}}}
+    \newcommand{\nt}[1]{\fbox{\parbox{\linewidth - 0.1in}{\fbox{\textbf{Note:-}} \par #1}}}
 ]]
 table.insert(snippets, ls.parser.parse_snippet("preamble", preamble))
 
@@ -105,14 +106,15 @@ local math_sets = {
    s("NN", { t("\\mathbb{N}"), i(0) }, { condition = math_mode }),
    s("PP", { t("\\mathbb{P}"), i(0) }, { condition = math_mode }),
    s("QQ", { t("\\mathbb{Q}"), i(0) }, { condition = math_mode }),
-   s("CC", { t("\\mathbb{CC}"), i(0) }, { condition = math_mode }),
-   s("ZZ", { t("\\mathbb{ZZ}"), i(0) }, { condition = math_mode }),
+   s("CC", { t("\\mathbb{C}"), i(0) }, { condition = math_mode }),
+   s("RR", { t("\\mathbb{R}"), i(0) }, { condition = math_mode }),
+   s("ZZ", { t("\\mathbb{Z}"), i(0) }, { condition = math_mode }),
 
    s("AA", { t("\\mathbb{A}"), i(0) }, { condition = math_mode }),
    s("MM", { t("\\mathfrak{m}"), i(0) }, { condition = math_mode }),
    s("Pp", { t("\\mathfrak{p}"), i(0) }, { condition = math_mode }),
    s("OO", { t("\\mathscr{O}"), i(0) }, { condition = math_mode }),
-   s("sett", { t("\\left{ "), i(1), t(" \\right}"), i(0) }, { condition = math_mode }),
+   s("sett", { t("\\left\\{ "), i(1, "elem"), t(" \\mid " ), i(2, "conditions"), t(" \\right\\}"), i(0) }, { condition = math_mode }),
 
    s("subset", { t("\\subset"), i(0) }, { condition = math_mode }),
    s("cup", { t("\\cup{"), i(1, "n = 1}"), t("^{"), i(2, "\\infty"), t("}"), i(0) }, { condition = math_mode }),
@@ -170,7 +172,7 @@ local math_arrows = {
 insert_to_snip(math_arrows, autosnippets)
 
 local math_functions = {
-   s("frac", { t("\\frac{"), i(1), t("}{"), i(2), t("}"), i(0) }, { condition = math_mode } ),
+   s("//", { t("\\frac{"), i(1), t("}{"), i(2), t("}"), i(0) }, { condition = math_mode } ),
    s("diff", { t("\\frac{d "), i(1), t("}{d "), i(2), t("}"), i(0) }, { condition = math_mode } ),
    s("partial", { t("\\frac{\\partial "), i(1), t("}{\\partial "), i(2), t("}"), i(0) }, { condition = math_mode } ),
    s("log", { t("\\log{"), i(1), t("}"), i(0) }, { condition = math_mode }),
@@ -183,7 +185,7 @@ local math_functions = {
    s("limm", { t("\\lim{"), i(1, "1 \\to \\infty"), t("}"), i(0) }, { condition = math_mode }),
    s("limm", { t("\\lim{"), i(1, "1 \\to \\infty"), t("}"), i(0) }, { condition = math_mode }),
    s("limsup", { t("\\limsup_{"), i(1, "1 \\to \\infty"), t("}"), i(0) }, { condition = math_mode }),
-   s("sqrt", { t("\\sqrt{"), i(1), t("}"), i(0) }, { condition = math_mode }),
+   s("sqrt", { t("\\sqrt["),i(1), t("]{"), i(2), t("}"), i(0) }, { condition = math_mode }),
    s("abs", { t("\\left| "), i(1), t(" \\right|"), i(0) }, { condition = math_mode }),
    s("^^", { t("^{"), i(1), t("}"), i(0) }, { condition = math_mode }),
    s("__", { t("_{"), i(1), t("}"), i(0) }, { condition = math_mode }),
@@ -193,6 +195,10 @@ insert_to_snip(math_functions, autosnippets)
 local math_operators = {
    s("()", { t("("), i(1), t(")"), i(0) }, { condition = math_mode }),
    s("[]", { t("["), i(1), t("]"), i(0) }, { condition = math_mode }),
+   s("+-", { t("\\pm"), i(0) }, { condition = math_mode }),
+   s("-+", { t("\\mp"), i(0) }, { condition = math_mode }),
+   s("o+", { t("\\oplus"), i(0) }, { condition = math_mode }),
+   s("ox", { t("\\otimes"), i(0) }, { condition = math_mode }),
    s("**", { t("\\cdot"), i(0) }, { condition = math_mode }),
    s("xx", { t("\\times"), i(0) }, { condition = math_mode }),
    s("<>", { t("\\langle "), i(1), t(" \\rangle"), i(0) }, { condition = math_mode }),
@@ -226,7 +232,7 @@ local latex_general_auto = {
    s("imat", { t{"\\begin{matrix}", "\t"}, i(1), t{"", "\\end{matrix}", ""}, i(0)}, { condition = math_mode }),
    s("cases", { t{"\\begin{case}", "\t"}, i(1), t{", & \\text{"}, i(2), t{"} \\\\", "\t"}, i(3), t(", & \\text{"), i(4), t{"}", "\\end{cases}", ""}, i(0)}, { condition = math_mode }),
    s("{}", { t("{"), i(1), t("}"), i(0) }),
-   s("$$", { t("$"), i(1), t("$"), i(0) }),
+   s("$", { t("$"), i(1), t("$"), i(0) }),
 }
 insert_to_snip(latex_general_auto, autosnippets)
 
@@ -234,9 +240,11 @@ local latex_general = {
    s("bold", { t("\\textbf{"), i(1), t("}"), i(0)}),
    s("italic", { t("\\textit{"), i(1), t("}"), i(0)}),
    s("underline", { t("\\underline{"), i(1), t("}"), i(0)}),
+   s("underbrace", { t("\\underbrace{"), i(1, "target"), t("}"), t("_{"), i(2, "below"), t("}"), i(0)}),
+   s("overset", { t("\\overset{"), i(1, "above"), t("}"), t("{"), i(2, "target"), t("}"), i(0)}),
    s("beg", { t("\\begin{"), i(1), t{"}", "\t"}, i(2), t{"", "\\end{"}, rep(1), t{"}", ""} , i(0)}),
    s("item", { t{"\\begin{itemize}", "\t \\item "}, i(1), t{"", "\\end{itemize}", ""}, i(0)}),
-   s("enum", { t{"\\begin{enumerate}[label=\\bfseries\\tiny\\protect\\circled{\\small\\arabic*}]", "\t \\item "}, i(1), t{"", "\\end{enumerate}", ""}, i(0)}),
+   s("enum", { t{"\\begin{enumerate}[label=\roman{enumi]", "\t \\item "}, i(1), t{"", "\\end{enumerate}", ""}, i(0)}),
    ls.parser.parse_snippet("fig", [[
       \begin{center}
         \captionsetup{type=figure}
