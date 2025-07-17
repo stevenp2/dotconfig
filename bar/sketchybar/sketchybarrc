@@ -1,151 +1,80 @@
-#                          ﱦ 齃     ﮂ  ﵁ 爵        ﭵ     ﱦ  ﰊ 異 ﴱ אַ  'Y⃣'
+#!/bin/bash
 
-############## BAR ##############
-sketchybar --bar height=42 \
-                 y_offset=5 \
-                 blur_radius=0 \
-                 position=top \
-                 padding_left=4 \
-                 padding_right=2 \
-                 margin=10 \
-                 corner_radius=12 \
-                 color=0xff1e1d2e \
-                 shadow=on
+source "$CONFIG_DIR/colors.sh" # Loads all defined colors
+source "$CONFIG_DIR/icons.sh" # Loads all defined icons
 
-############## GLOBAL DEFAULTS ##############
-sketchybar --default updates=when_shown \
-                     icon.font="FiraCode Nerd Font:Bold:16.0" \
-                     icon.color=0xffECEFF4 \
-                     icon.highlight_color=0xffE48FA8 \
-                     label.font="FiraCode Nerd Font:Bold:16.0" \
-                     label.color=0xffECEFF4 \
-                     background.corner_radius=5 \
-                     background.height=30
+ITEM_DIR="$CONFIG_DIR/items" # Directory where the items are configured
+PLUGIN_DIR="$CONFIG_DIR/plugins" # Directory where all the plugin scripts are stored
 
-sketchybar --add item logo left \
-           --set logo icon= \
-                 icon.color=0xff010101 \
-                 icon.padding_left=16 \
-                 icon.padding_right=16 \
-                 background.color=0xffA5E0D5 \
-                 background.padding_right=8 \
-                 background.padding_left=4 \
-                 click_script="sketchybar --update"
+FONT="Hack Nerd Font" # Needs to have Regular, Bold, Semibold, Heavy and Black variants
+PADDINGS=3 # All paddings use this value (icon, label, background)
 
-SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
-SPACES=()
+# Unload the macOS on screen indicator overlay for volume change
+launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist > /dev/null 2>&1 &
 
-for i in "${!SPACE_ICONS[@]}"
-do
-  sid=$(($i+1))
-  SPACES+=(space.$sid)
-  sketchybar --add space space.$sid left \
-             --set space.$sid associated_space=$sid \
-                              icon=${SPACE_ICONS[i]} \
-                              icon.padding_left=20 \
-                              icon.padding_right=20 \
-                              icon.highlight_color=0xffE48FA8 \
-                              background.padding_left=-4 \
-                              background.padding_right=-4 \
-                              background.color=0xff3C3E4F \
-                              background.drawing=on \
-                              label.drawing=off \
-                              click_script="yabai -m space --focus $sid"
-done
+# Setting up the general bar appearance of the bar
+bar=(
+  height=42
+  color=$TRANSPARENT
+  border_width=2
+  border_color=$BAR_BORDER_COLOR
+  shadow=off
+  position=top
+  sticky=on
+  padding_right=10
+  padding_left=10
+  y_offset=3
+  margin=4
+  corner_radius=6
+  notch_offset=10
+)
 
-sketchybar --add item space_separator left \
-           --set space_separator icon= \
-                                 background.padding_left=23 \
-                                 background.padding_right=23 \
-                                 label.drawing=off \
-                                 icon.color=0xff92B3F5
+sketchybar --bar "${bar[@]}"
 
-sketchybar --add item window_title left \
-           --set window_title    script="~/.config/sketchybar/plugins/window_title.sh" \
-                                 icon.drawing=off \
-                                 label.color=0xffb7bdf4 \
-           --subscribe window_title front_app_switched
+# Setting up default values
+defaults=(
+  updates=when_shown
+  icon.font="$FONT:Bold:14.0"
+  icon.color=$ICON_COLOR
+  icon.padding_left=$PADDINGS
+  icon.padding_right=$PADDINGS
+  label.font="$FONT:Semibold:13.0"
+  label.color=$LABEL_COLOR
+  label.padding_left=$PADDINGS
+  label.padding_right=$PADDINGS
+  padding_right=$PADDINGS
+  padding_left=$PADDINGS
+  background.height=26
+  background.corner_radius=9
+  background.border_width=2
+  popup.background.border_width=2
+  popup.background.corner_radius=9
+  popup.background.border_color=$POPUP_BORDER_COLOR
+  popup.background.color=$POPUP_BACKGROUND_COLOR
+  popup.blur_radius=20
+  popup.background.shadow.drawing=on
+)
 
-############## ITEM DEFAULTS ###############
-sketchybar --default label.padding_left=6 \
-                     label.padding_right=6 \
-                     icon.padding_left=6 \
-                     icon.padding_right=6 \
-                     icon.font="FiraCode Nerd Font:Bold:20.0" \
-                     background.height=30 \
-                     background.padding_right=4 \
-                     background.padding_left=4 \
-                     background.corner_radius=5
+sketchybar --default "${defaults[@]}"
 
-sketchybar --add item spot_logo center \
-           --set spot_logo icon= \
-                           label.drawing=off \
-                           icon.color=0xff121219 \
-                           background.color=0xffEDC4E5
+# Left
+source $ITEM_DIR/apple.sh
+source $ITEM_DIR/spaces.sh
+source $ITEM_DIR/front_app.sh
 
+# Center
+source "$ITEM_DIR/weather.sh"
+# source "$ITEM_DIR/spotify.sh"
 
-sketchybar --add item spot center \
-           --set spot update_freq=1 \
-                      icon.drawing=off \
-                      updates=on \
-                      script="~/.config/sketchybar/plugins/spotifyIndicator.sh" \
-                      background.color=0xff3C3E4F \
-                      background.padding_left=0
+# Right
+source "$ITEM_DIR/calendar.sh"
+source "$ITEM_DIR/brew.sh"
+source "$ITEM_DIR/github.sh"
+source "$ITEM_DIR/battery.sh"
+source "$ITEM_DIR/volume.sh"
+source "$ITEM_DIR/cpu.sh"
 
-############## RIGHT ITEMS ##############
-sketchybar --add item time right \
-           --set time update_freq=1 \
-                      icon.drawing=off \
-                      script="~/.config/sketchybar/plugins/time.sh" \
-                      background.color=0xff3C3E4F \
-                      background.padding_left=0
-
-sketchybar --add item time_logo right\
-           --set time_logo icon= \
-                           label.drawing=off \
-                           icon.color=0xff121219 \
-                           label.drawing=off \
-                           background.color=0xffF5E3B5
-
-sketchybar --add item date right \
-           --set date update_freq=1000 \
-                      icon.drawing=off \
-                      script="~/.config/sketchybar/plugins/date.sh" \
-                      background.color=0xff3C3E4F \
-                      background.padding_left=0
-
-sketchybar --add item clock_logo right\
-           --set clock_logo icon= \
-                            icon.color=0xff121219\
-                            label.drawing=off \
-                            background.color=0xff92B3F5
-
-sketchybar --add item battery right \
-           --set battery update_freq=3 \
-                         icon.drawing=off \
-                         script="~/.config/sketchybar/plugins/power.sh" \
-                         background.color=0xff3C3E4F \
-                         background.padding_left=0
-
-sketchybar --add item power_logo right \
-           --set power_logo icon= \
-                 icon.color=0xff121219 \
-                 label.drawing=off \
-                 background.color=0xffB3E1A7
-
-sketchybar --add item net right \
-           --set net script="~/.config/sketchybar/plugins/net.sh" \
-                     icon.drawing=off \
-                     background.color=0xff3C3E4F \
-                     background.padding_left=0
-
-sketchybar --add item net_logo right \
-           --set net_logo icon=\
-                     icon.color=0xff121219\
-                     label.drawing=off \
-                     background.color=0xffE0A3AD
-
-############## FINALIZING THE SETUP ##############
+# Forcing all item scripts to run (never do this outside of sketchybarrc)
 sketchybar --update
 
-echo "sketchybar configuration loaded..."
+echo "sketchybar configuation loaded.."

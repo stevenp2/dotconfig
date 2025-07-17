@@ -16,4 +16,5 @@ fi
 action="give execution permission to plugins"
 if confirm "$action"; then
     chmod +x "$HOME/dotconfig/bar/sketchybar/plugins/"*
+    chmod +x "$HOME/dotconfig/bar/sketchybar/items/"*
 fi
