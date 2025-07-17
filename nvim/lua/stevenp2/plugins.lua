@@ -66,7 +66,6 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-cmdline" -- cmdline completions
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp" -- lsp completiona
-  use "quangnguyen30192/cmp-nvim-ultisnips"
 
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
@@ -107,11 +106,6 @@ return packer.startup(function(use)
       "bib",
     },
   })
-
-  use({
-   "SirVer/ultisnips",
-  })
-
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
