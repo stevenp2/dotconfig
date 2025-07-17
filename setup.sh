@@ -19,3 +19,11 @@ setup_app lazygit
 setup_app alacritty
 setup_app bottom
 setup_app neofetch
+
+if is_linux; then
+  setup_app bar/polybar
+elif is_mac; then
+  setup_app bar/sketchybar
+fi
+
+
