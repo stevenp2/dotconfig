@@ -1,1 +1,1 @@
-require("colorscheme.colorscheme")
+require("stevenp2.colorscheme.colorscheme")
