@@ -30,11 +30,4 @@ function M.setup()
 
 end
 
--- folding
-local vim = vim
-
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.foldlevel = 99 -- hacky way of doing it
-
 return M
