@@ -12,4 +12,4 @@ require("stevenp2.gitsigns")
 require("stevenp2.nvim-tree")
 require("stevenp2.bufferline")
 require("stevenp2.lualine")
-
+require("stevenp2.dressing")
