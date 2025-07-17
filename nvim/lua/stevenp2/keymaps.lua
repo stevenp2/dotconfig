@@ -30,7 +30,8 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 keymap("n", "<esc><esc>", ":noh<return>", opts)
 
 -- rename
-keymap("n", "<leader>r", ":Lspsaga rename<CR>", opts)
+--[[ keymap("n", "gr", ":Lspsaga rename<CR>", opts) ]]
+vim.keymap.set("n", "gr", ":Lspsaga rename<CR>", { silent = true, noremap = true})
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
@@ -41,7 +42,7 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
-keymap("n", "<C-w>", ":Bdelete<CR>", opts)
+keymap("n", "<C-w>w", ":Bdelete<CR>", opts)
 keymap("n", "<C-n>", "<Cmd>ene <BAR><CR>", opts)
 
 -- Insert --
@@ -56,7 +57,11 @@ keymap("v", ">", ">gv", opts)
 -- Move text up and down
 keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
+
+-- paste not copy
 keymap("v", "p", '"_dP', opts)
+-- yank cursor stay 
+keymap("v", "y", "ygv<ESC", opts)
 
 -- Visual Block --
 -- Move text up and down
