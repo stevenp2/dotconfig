@@ -2,7 +2,11 @@ continuation_prompt = "❯❯ "
 
 format = """
 $sudo\
+[◗](fg:#f7768e)\
+$username\
+[❯ ](fg:#f7768e)\
 $directory($package)\
+[❯ ](fg:#f7768e)\
 $git_branch\
 $git_status\
 $all
@@ -16,12 +20,11 @@ error_symbol = "[❯](bold #2ac3de)[❯](bold #e0af68)[❯](bold #f7768e)"
 show_always = true
 style_user = "blue bold"
 style_root = "red bold"
-format = "[ stevenp2 ]($style)"
+format = "[stevenp2 ]($style)"
 
 [directory]
 read_only = " "
 style = "#7dcfff bold"
-home_symbol = " "
 
 # Here is how you can shorten some long paths by text replacement
 # similar to mapped_locations in Oh My Posh:
