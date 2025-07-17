@@ -414,7 +414,13 @@ colors: *tokyo-night
 #  - { mouse: Middle, mode: ~Vi,     action: PasteSelection  }
 
 # Key bindings
-#
+key_bindings:
+  - { key: N, mods: Command, action: CreateNewWindow }
+
+# - `action`: Execute a predefined action
+
+
+
 # Key bindings are specified as a list of objects. For example, this is the
 # default paste binding:
 #
