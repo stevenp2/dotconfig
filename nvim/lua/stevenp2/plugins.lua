@@ -52,6 +52,7 @@ return packer.startup(function(use)
   use "moll/vim-bbye" -- allow for deletion of buffer
   use "nvim-lualine/lualine.nvim" -- for status line at bottom
   use "stevearc/dressing.nvim" -- wrapper around vim calls
+  use "b0o/incline.nvim" -- buffer management with multiple splits
 
   use {
     'goolord/alpha-nvim',
