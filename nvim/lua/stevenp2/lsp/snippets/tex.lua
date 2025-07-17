@@ -89,11 +89,11 @@ local template = [[
     \setcounter{page}{1}
 
     \section{$5}
-        \include{$0}
+        \input{$0}
 
     % \begin{appendices}
     %     \section{}
-    %     \include}{}
+    %     \input{}
     % \end{appendices}
 
     \end{document}
