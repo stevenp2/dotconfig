@@ -86,7 +86,7 @@ return lazy.setup({
 
   { "folke/trouble.nvim",
     dependencies = { "kyazdani42/nvim-web-devicons" },
-    config = function() require("stevenp2.plugins.lsp.trouble")  end
+    config = function() require("stevenp2.plugins.lsp.trouble").setup() end
   },
 
   -- Telescope
@@ -99,12 +99,23 @@ return lazy.setup({
   },
   "nvim-telescope/telescope-media-files.nvim", -- view media in telescope
 
+  -------------------------------
   -- Treesitter
-  "nvim-treesitter/nvim-treesitter",
+  -------------------------------
+  {"nvim-treesitter/nvim-treesitter",
+    config = function() require("stevenp2.plugins.treesitter.treesitter").setup() end
+  },
   "JoosepAlviste/nvim-ts-context-commentstring", -- comment string based on context
 
   -- autopairs
-  "windwp/nvim-autopairs", -- autopairing of parens, braces, etc.
+  {"windwp/nvim-autopairs",
+    config = function() require("stevenp2.plugins.treesitter.autopairs").setup() end
+  }, -- autopairing of parens, braces, etc.
+
+
+  -------------------------------
+  -- Languages
+  -------------------------------
 
   -- Latex
   { "lervag/vimtex", ft = { "tex", "bib", } },
