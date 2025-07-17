@@ -24,12 +24,14 @@ function M.setup()
   end
   })
 
-  local lua_loader = require("luasnip.loaders.from_lua")
-  vim.api.nvim_create_user_command("LuaSnipEdit", lua_loader.edit_snippet_files, {})
-  vim.keymap.set("n", "\\S", "<Cmd>LuaSnipEdit<CR>", { silent = true })
+  local lua_loader_ok, lua_loader = pcall(require, "luasnip.loaders.from_lua")
+  if not lua_loader_ok then
+    return
+  end
 
-  --[[ require("luasnip.loaders.from_vscode").lazy_load() ]]
-  require("luasnip.loaders.from_lua").lazy_load({ paths = {"~/dotconfig/nvim/lua/stevenp2/plugins/lsp/snippets" }})
+  local lua_snippets_path = "~/dotconfig/nvim/lua/stevenp2/plugins/lsp/snippets"
+
+  lua_loader.lazy_load({ paths = { lua_snippets_path }})
 
   local check_backspace = function()
     local col = vim.fn.col "." - 1

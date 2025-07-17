@@ -89,3 +89,6 @@ keymap("n", "gtt", ":ToggleTerm direction=tab<cr>", opts)
 -- Telescope
 keymap("n", "<leader>F", ":Telescope live_grep<cr>", opts)
 keymap("n", "<leader>R", ":Telescope resume<cr>", opts)
+
+-- Aerial
+keymap("n", "<leader>a", ":AerialToggle<cr>", opts)
