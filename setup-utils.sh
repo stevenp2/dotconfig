@@ -44,7 +44,6 @@ backup_dst_config() {
   fi
 }
 
-# TODO: mkdir -p
 link_config() {
   src=$1
   dst=$2
@@ -52,8 +51,15 @@ link_config() {
   copy_only=${4:-false}
   [[ $as_root = true ]] && as_user="sudo" || as_user=""
   [[ $copy_only = true ]] && command="cp" || command="ln -s"
-  # create and move to backup if exists
-  backup_dst_config $dst $as_user
+  # check if the directory exists
+  if [ -d "/path/to/dir" ]; then
+    # create and move to backup if exists
+    backup_dst_config $dst $as_user
+  else
+    # make directory if it doesn't exist currently
+    mkdir -p $dst
+  fi
+
   $as_user $command "$src" "$dst"
 }
 
