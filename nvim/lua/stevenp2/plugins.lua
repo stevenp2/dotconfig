@@ -116,7 +116,7 @@ return packer.startup(function(use)
   -- lsp: diagnostics
   use {
     "folke/trouble.nvim",
-    requires = {"kyazdani42/nvim-web-devicons"} 
+    requires = {"kyazdani42/nvim-web-devicons"}
   }
   use {
     "cseickel/diagnostic-window.nvim",
