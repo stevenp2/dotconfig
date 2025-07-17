@@ -105,6 +105,11 @@ _G.packer_plugins = {
     path = "/Users/steven/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  ["cmp-nvim-ultisnips"] = {
+    loaded = true,
+    path = "/Users/steven/.local/share/nvim/site/pack/packer/start/cmp-nvim-ultisnips",
+    url = "https://github.com/quangnguyen30192/cmp-nvim-ultisnips"
+  },
   ["cmp-path"] = {
     loaded = true,
     path = "/Users/steven/.local/share/nvim/site/pack/packer/start/cmp-path",
@@ -196,7 +201,7 @@ _G.packer_plugins = {
     url = "https://github.com/folke/tokyonight.nvim"
   },
   ultisnips = {
-    config = { "\27LJ\2\nù\1\0\0\2\0\t\0\0216\0\0\0009\0\1\0)\1\0\0=\1\2\0006\0\0\0009\0\1\0)\1\0\0=\1\3\0006\0\0\0009\0\1\0'\1\5\0=\1\4\0006\0\0\0009\0\1\0'\1\5\0=\1\6\0006\0\0\0009\0\1\0'\1\b\0=\1\a\0K\0\1\0\f<S-Tab>!UltiSnipsJumpBackwardTrigger UltiSnipsJumpForwardTrigger\n<Tab>\27UltiSnipsExpandTrigger&UltiSnipsRemoveSelectModeMappings\28UltiSnipsEnableSnipMate\6g\bvim\0" },
+    config = { "\27LJ\2\nù\1\0\0\2\0\t\0\0216\0\0\0009\0\1\0)\1\0\0=\1\2\0006\0\0\0009\0\1\0)\1\0\0=\1\3\0006\0\0\0009\0\1\0'\1\5\0=\1\4\0006\0\0\0009\0\1\0'\1\5\0=\1\6\0006\0\0\0009\0\1\0'\1\b\0=\1\a\0K\0\1\0\f<S-tab>!UltiSnipsJumpBackwardTrigger UltiSnipsJumpForwardTrigger\n<tab>\27UltiSnipsExpandTrigger&UltiSnipsRemoveSelectModeMappings\28UltiSnipsEnableSnipMate\6g\bvim\0" },
     loaded = true,
     path = "/Users/steven/.local/share/nvim/site/pack/packer/start/ultisnips",
     url = "https://github.com/SirVer/ultisnips"
@@ -231,7 +236,7 @@ try_loadstring("\27LJ\2\nL\0\0\2\0\6\0\t6\0\0\0009\0\1\0+\1\2\0=\1\2\0006\0\0\00
 time([[Config for alpha-nvim]], false)
 -- Config for: ultisnips
 time([[Config for ultisnips]], true)
-try_loadstring("\27LJ\2\nù\1\0\0\2\0\t\0\0216\0\0\0009\0\1\0)\1\0\0=\1\2\0006\0\0\0009\0\1\0)\1\0\0=\1\3\0006\0\0\0009\0\1\0'\1\5\0=\1\4\0006\0\0\0009\0\1\0'\1\5\0=\1\6\0006\0\0\0009\0\1\0'\1\b\0=\1\a\0K\0\1\0\f<S-Tab>!UltiSnipsJumpBackwardTrigger UltiSnipsJumpForwardTrigger\n<Tab>\27UltiSnipsExpandTrigger&UltiSnipsRemoveSelectModeMappings\28UltiSnipsEnableSnipMate\6g\bvim\0", "config", "ultisnips")
+try_loadstring("\27LJ\2\nù\1\0\0\2\0\t\0\0216\0\0\0009\0\1\0)\1\0\0=\1\2\0006\0\0\0009\0\1\0)\1\0\0=\1\3\0006\0\0\0009\0\1\0'\1\5\0=\1\4\0006\0\0\0009\0\1\0'\1\5\0=\1\6\0006\0\0\0009\0\1\0'\1\b\0=\1\a\0K\0\1\0\f<S-tab>!UltiSnipsJumpBackwardTrigger UltiSnipsJumpForwardTrigger\n<tab>\27UltiSnipsExpandTrigger&UltiSnipsRemoveSelectModeMappings\28UltiSnipsEnableSnipMate\6g\bvim\0", "config", "ultisnips")
 time([[Config for ultisnips]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
