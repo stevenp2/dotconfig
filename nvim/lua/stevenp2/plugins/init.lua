@@ -31,44 +31,73 @@ return lazy.setup({
     end
   },
 
+  -- Telescope
+  {
+    "nvim-telescope/telescope.nvim", -- fuzzy finder
+    dependencies = {
+      { "kdheepak/lazygit.nvim" }, -- running lazygit in nvim
+      { "nvim-lua/plenary.nvim" } -- Useful lua functions used ny lots of plugins
+    },
+  },
+  "nvim-telescope/telescope-media-files.nvim", -- view media in telescope
+
   -- My plugins here
   "nvim-lua/popup.nvim", -- An implementation of the Popup API from vim in Neovim
   "nvim-lua/plenary.nvim", -- Useful lua functions used ny lots of plugins
   "numtoStr/Comment.nvim", -- comment things easily
-  "lewis6991/gitsigns.nvim", -- signs to keep track of file edits for git
   "kyazdani42/nvim-web-devicons", -- icons used in plugins
   "kyazdani42/nvim-tree.lua", -- file explorer
-  "akinsho/bufferline.nvim", -- buffer tabs for nvim
   "moll/vim-bbye", -- allow for deletion of buffer
-  "nvim-lualine/lualine.nvim", -- for status line at bottom
-  "stevearc/dressing.nvim", -- wrapper around vim calls
-  "b0o/incline.nvim", -- buffer management with multiple splits
-  "petertriho/nvim-scrollbar", -- scrollbar
-  "lukas-reineke/indent-blankline.nvim", -- view degree of indentation
-  "karb94/neoscroll.nvim", -- smoother scrolling experience
   "MunifTanjim/nui.nvim", -- UI component library for neovim
-  { "goolord/alpha-nvim", dependencies = { "kyazdani42/nvim-web-devicons" }, lazy=false }, -- greeter for nvim
     "ellisonleao/glow.nvim", -- md viewer
   { "akinsho/toggleterm.nvim", version = "*"}, -- toggle terminal ]]
   -- TODO [[ "folke/which-key.nvim", -- viewing keymap ]]
 
-  -- cmp plugins
-  {"hrsh7th/nvim-cmp",
-    config = function() require("stevenp2.plugins.lsp.cmp").setup() end
-  },
-  "hrsh7th/cmp-buffer", -- buffer completions
-  "hrsh7th/cmp-path", -- path completions
-  "hrsh7th/cmp-cmdline", -- cmdline completions
-  "saadparwaiz1/cmp_luasnip", -- snippet completions
-  "hrsh7th/cmp-nvim-lsp", -- lsp completiona
-  "hrsh7th/cmp-nvim-lua", -- lua completiona
-
-  -- snippets
-  "L3MON4D3/LuaSnip", --snippet engine
-  "rafamadriz/friendly-snippets", -- a bunch of snippets to use
-
   -- urlview - a special plugin that gets to take up a lot of space
   "axieax/urlview.nvim",
+
+
+  -------------------------------
+  -- ui
+  -------------------------------
+  { "goolord/alpha-nvim",
+    dependencies = { "kyazdani42/nvim-web-devicons" },
+    config = function() require("stevenp2.plugins.ui.alpha").setup() end
+  }, -- greeter for nvim
+
+  { "lewis6991/gitsigns.nvim",
+    config = function() require("stevenp2.plugins.ui.gitsigns").setup() end
+  }, -- signs to keep track of file edits for git
+
+  { "akinsho/bufferline.nvim",
+    config = function() require("stevenp2.plugins.ui.bufferline").setup() end
+  }, --stevenp2.plugins.ui.lualine
+
+  { "petertriho/nvim-scrollbar",
+    dependencies = "folke/tokyonight.nvim",
+    config = function() require("stevenp2.plugins.ui.scrollbar").setup() end
+  }, -- scrollbar
+
+  { "karb94/neoscroll.nvim",
+    config = function() require("stevenp2.plugins.ui.neoscroll").setup() end
+  }, -- smoother scrolling experience
+
+  { "b0o/incline.nvim",
+    config = function() require("stevenp2.plugins.ui.incline").setup() end
+  }, -- buffer management with multiple splits
+
+  { "nvim-lualine/lualine.nvim",
+    config = function() require("stevenp2.plugins.ui.lualine").setup() end
+  }, -- for status line at bottom
+
+  { "lukas-reineke/indent-blankline.nvim",
+    config = function() require("stevenp2.plugins.ui.indent-blankline").setup() end
+  }, -- view degree of indentation
+
+  { "stevearc/dressing.nvim",
+    dependencies = "smjonas/inc-rename.nvim",
+    config = function() require("stevenp2.plugins.ui.dressing").setup() end
+  }, -- wrapper around vim calls
 
   ----------------------------------
   -- lsp
@@ -89,15 +118,20 @@ return lazy.setup({
     config = function() require("stevenp2.plugins.lsp.trouble").setup() end
   },
 
-  -- Telescope
-  {
-    "nvim-telescope/telescope.nvim", -- fuzzy finder
-    dependencies = {
-      { "kdheepak/lazygit.nvim" }, -- running lazygit in nvim
-      { "nvim-lua/plenary.nvim" } -- Useful lua functions used ny lots of plugins
-    },
+  -- cmp
+  {"hrsh7th/nvim-cmp",
+    config = function() require("stevenp2.plugins.lsp.cmp").setup() end
   },
-  "nvim-telescope/telescope-media-files.nvim", -- view media in telescope
+  "hrsh7th/cmp-buffer", -- buffer completions
+  "hrsh7th/cmp-path", -- path completions
+  "hrsh7th/cmp-cmdline", -- cmdline completions
+  "saadparwaiz1/cmp_luasnip", -- snippet completions
+  "hrsh7th/cmp-nvim-lsp", -- lsp completiona
+  "hrsh7th/cmp-nvim-lua", -- lua completiona
+
+  -- snippets
+  "L3MON4D3/LuaSnip", --snippet engine
+  "rafamadriz/friendly-snippets", -- a bunch of snippets to use
 
   -------------------------------
   -- Treesitter
