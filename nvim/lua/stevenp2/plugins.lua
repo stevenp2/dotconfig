@@ -56,6 +56,7 @@ return packer.startup(function(use)
   use "petertriho/nvim-scrollbar" -- scrollbar
   use "lukas-reineke/indent-blankline.nvim" -- view degree of indentation
   use "karb94/neoscroll.nvim" -- smoother scrolling experience
+  use "MunifTanjim/nui.nvim" -- UI component library for neovim
 
   use {
     'goolord/alpha-nvim',
@@ -76,7 +77,13 @@ return packer.startup(function(use)
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp" -- lsp completiona
   use "hrsh7th/cmp-nvim-lua" -- lua completiona
-  --[[ use ("github/copilot.vim", "copilot") -- AI generated code ]]
+
+  -- testing copilot
+--[[   use { ]]
+--[[     "github/copilot.vim", ]]
+--[[     "zbirenbaum/copilot-cmp", ]]
+--[[     module = "copilot_cmp" ]]
+--[[ } ]]
 
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
@@ -88,7 +95,6 @@ return packer.startup(function(use)
   -- lsp
   use "neovim/nvim-lspconfig" -- enable lsp
   use "williamboman/nvim-lsp-installer" -- simple lsp installer
-  use "smjonas/inc-rename.nvim" -- lightweight renaming fn requires dressing.nvim
   -- lsp: diagnostics
   use {
     "folke/trouble.nvim",
@@ -130,6 +136,14 @@ return packer.startup(function(use)
 
   -- rust 
   use "simrat39/rust-tools.nvim"
+
+ -- EXPERIMENTALJKj
+  --[[ use {"williamboman/mason.nvim",  ]]
+  --[[   config = function () require("mason").setup() end ]]
+  --[[ } ]]
+
+  -- competitest
+  --[[ use "xeluxee/competitest.nvim" ]]
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
