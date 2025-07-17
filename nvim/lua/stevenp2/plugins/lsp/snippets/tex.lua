@@ -244,7 +244,7 @@ local latex_general = {
    s("overset", { t("\\overset{"), i(1, "above"), t("}"), t("{"), i(2, "target"), t("}"), i(0)}),
    s("beg", { t("\\begin{"), i(1), t{"}", "\t"}, i(2), t{"", "\\end{"}, rep(1), t{"}", ""} , i(0)}),
    s("item", { t{"\\begin{itemize}", "\t \\item "}, i(1), t{"", "\\end{itemize}", ""}, i(0)}),
-   s("enum", { t{"\\begin{enumerate}[label=\roman{enumi]", "\t \\item "}, i(1), t{"", "\\end{enumerate}", ""}, i(0)}),
+   s("enum", { t{"\\begin{enumerate}[label=\\roman{enumi}", "\t \\item "}, i(1), t{"", "\\end{enumerate}", ""}, i(0)}),
    ls.parser.parse_snippet("fig", [[
       \begin{center}
         \captionsetup{type=figure}
