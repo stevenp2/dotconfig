@@ -74,7 +74,7 @@ return packer.startup(function(use)
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   -- urlview
-  use ({"axieax/urlview.nvim", 
+  use ({"axieax/urlview.nvim",
     config = function()
       require("urlview").setup({
         -- Prompt title (`<context> <default_title>`, e.g. `Buffer Links:`)
