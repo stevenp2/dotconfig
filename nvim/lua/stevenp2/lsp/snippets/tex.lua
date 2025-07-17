@@ -17,11 +17,16 @@ local l = extras.l
 local rep = extras.rep
 local postfix = require("luasnip.extras.postfix").postfix
 
+-- enable autosnippets
+ls.setup({
+    enable_autosnippets = true
+})
+
+-- only insert under math mode in latex
+local math_mode = function ()
+    return vim.api.nvim_command_output("echo vimtex#syntax#in_mathzone()") == '1'
+end
+
 local snippets, autosnippets = {}, {}
-
-local template = s("trigger", { t("Wow! Text!") })
-table.insert(snippets, template)
-
-
 
 return snippets, autosnippets
