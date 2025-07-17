@@ -19,5 +19,23 @@ local postfix = require("luasnip.extras.postfix").postfix
 
 local snippets, autosnippets = {}, {}
 
+local competitive_setup = [[
+#include <bits/stdc++.h>
+#define MOD 1000000007
+#define fio { cin.tie(nullptr); cin.sync_with_stdio(false); }
+typedef long long ll;
+using namespace std;
+ll madd(ll a, ll b) { return ((a + b) % MOD + MOD) % MOD; }
+ll msub(ll a, ll b) { return ((a - b) % MOD + MOD) % MOD; }
+ll lb(ll a, ll b) { return max(a - b, (ll) 0); }
+ll ub(ll a, ll b, ll n) { return min(a + b, n); }
+
+int main() {
+    fio
+    $0
+}
+
+]]
+table.insert(snippets, ls.parser.parse_snippet("competitive", competitive_setup))
 
 return snippets, autosnippets
