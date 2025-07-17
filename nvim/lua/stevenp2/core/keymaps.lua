@@ -93,3 +93,6 @@ keymap("n", "<leader>R", ":Telescope resume<cr>", opts)
 
 -- Aerial
 keymap("n", "<leader>a", ":AerialToggle<cr>", opts)
+
+-- Trouble
+keymap("n", "<leader>q", "<cmd>TroubleToggle<CR>", opts)
