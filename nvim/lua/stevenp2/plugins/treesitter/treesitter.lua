@@ -11,7 +11,8 @@ function M.setup()
   treesitter.setup({
     ensure_installed = "all",
     ignore_install = {
-      "latex"
+      "latex",
+      "ipkg"
     },
     highlight = {
       enable = true,
