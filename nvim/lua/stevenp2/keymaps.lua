@@ -29,8 +29,7 @@ vim.g.maplocalleader = " "
 keymap("n", "<esc><esc>", ":noh<return>", opts)
 
 -- rename
---[[ keymap("n", "gr", ":Lspsaga rename<CR>", opts) ]]
-vim.keymap.set("n", "gr", ":Lspsaga rename<CR>", { silent = true, noremap = true})
+keymap("n", "gr", ":IncRename ", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
@@ -79,3 +78,6 @@ keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
 -- Lazygit
 keymap("n", "<leader>g", ":LazyGit<cr>", opts)
+
+-- diagnostic view 
+keymap("n", "gK", ":DiagWindowShow<cr>", opts)

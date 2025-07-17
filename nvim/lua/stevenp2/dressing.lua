@@ -3,6 +3,15 @@ if not dressing_status_ok then
   return
 end
 
+local status_inc_rename_ok, inc_rename = pcall(require, "inc_rename")
+if not status_inc_rename_ok then
+  return
+end
+
+inc_rename.setup({
+    input_buffer_type = "dressing",
+})
+
 dressing.setup({
   input = {
     -- Set to false to disable the vim.ui.input implementation
