@@ -78,3 +78,6 @@ keymap("n", "<leader>g", ":LazyGit<cr>", opts)
 
 -- diagnostic view 
 keymap("n", "gK", ":DiagWindowShow<cr>", opts)
+
+-- diagnostic view 
+keymap("n", "gt", ":ToggleTerm<cr>", opts)
