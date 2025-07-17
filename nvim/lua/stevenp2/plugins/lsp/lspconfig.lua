@@ -10,7 +10,8 @@ M.servers = {
     "marksman",
     "bashls",
     "gopls",
-    "tsserver"
+    "tsserver",
+    "eslint"
   }
 
 function M.setup()
