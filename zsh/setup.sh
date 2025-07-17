@@ -54,7 +54,7 @@ fi
 action="link p10k or link pastel-powerline theme (yn)"
 if confirm "$action"; then
   if is_linux || is_mac; then
-    link_config "$HOME/dotconfig/zsh/.p10k.zsh" "$HOME/.p10k.zsh"
+    link_config "$HOME/dotconfig/zsh/themes/.p10k.zsh" "$HOME/.p10k.zsh"
     echo "ZSH_THEME=\"powerlevel10k/powerlevel10k\"" >> .zshrc
     echo "[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh" >> .zshrc
   else
@@ -62,7 +62,7 @@ if confirm "$action"; then
   fi
 else 
   if is_linux || is_mac; then
-    link_config "$HOME/dotconfig/zsh/starship.toml" "$HOME/.config/starship.toml"
+    link_config "$HOME/dotconfig/zsh/themes/starship.toml" "$HOME/.config/starship.toml"
   else
     echo "invalid OSTYPE $OSTYPE for zsh setup"
   fi
