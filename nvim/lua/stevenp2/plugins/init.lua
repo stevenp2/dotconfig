@@ -192,8 +192,8 @@ return lazy.setup({
 
   { "folke/trouble.nvim",
     lazy = true,
-    cmd = "TroubleToggle",
-    config = function() require("stevenp2.plugins.lsp.trouble").setup() end
+    cmd = "Trouble",
+    opts = {},
   },
 
   -- cmp
