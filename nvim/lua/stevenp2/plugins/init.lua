@@ -280,7 +280,7 @@ return lazy.setup({
   -------------------------------
   -- others
   -------------------------------
-  { "kyazdani42/nvim-web-devicons",
+  { "nvim-tree/nvim-web-devicons",
     dependencies = {
       "goolord/alpha-nvim",
     }
