@@ -47,9 +47,6 @@ keymap("n", "<C-n>", "<Cmd>ene <BAR><CR>", opts)
 -- Insert --
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
-keymap("v", "jk", "<ESC>", opts)
-keymap("x", "jk", "<ESC>", opts)
-keymap("t", "jk", "<ESC>", opts)
 
 -- Visual --
 -- Stay in indent mode
