@@ -27,22 +27,22 @@ end
 -- Alternatively, you may also register handlers on specific server instances instead (see example below).
 for _, server in pairs(servers) do
 	local opts = {
-		on_attach = require("stevenp2.lsp.handlers").on_attach,
-		capabilities = require("stevenp2.lsp.handlers").capabilities,
+		on_attach = require("stevenp2.plugins.lsp.handlers").on_attach,
+		capabilities = require("stevenp2.plugins.lsp.handlers").capabilities,
 	}
 
 	 if server == "jsonls" then
-	 	local jsonls_opts = require("stevenp2.lsp.settings.jsonls")
+	 	local jsonls_opts = require("stevenp2.plugins.lsp.settings.jsonls")
 	 	opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
 	 end
 
 	 if server == "sumneko_lua" then
-	 	local sumneko_opts = require("stevenp2.lsp.settings.sumneko_lua")
+	 	local sumneko_opts = require("stevenp2.plugins.lsp.settings.sumneko_lua")
 	 	opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
 	 end
 
 	 if server == "texlab" then
-	 	require("stevenp2.lsp.settings.vimtex")
+	 	require("stevenp2.plugins.lsp.settings.vimtex")
 	 end
 
     if server == "rust_analyzer" then
@@ -78,8 +78,8 @@ for _, server in pairs(servers) do
             end,
           },
           server = {
-            on_attach = require("stevenp2.lsp.handlers").on_attach,
-            capabilities = require("stevenp2.lsp.handlers").capabilities,
+            on_attach = require("stevenp2.plugins.lsp.handlers").on_attach,
+            capabilities = require("stevenp2.plugins.lsp.handlers").capabilities,
             settings = {
               ["rust-analyzer"] = {
                 lens = {
