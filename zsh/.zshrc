@@ -17,9 +17,9 @@ function pathadd() {
 pathadd "$HOME/.bin"
 pathadd "$HOME/.local/bin"
 pathadd "$HOME/.cargo/bin"
+pathadd "$HOME/.cargo/env"
 pathadd "$HOME/go/bin"
 pathadd "$HOME/bin/path"
-pathadd "$HOME/.cargo/bin:"
 
 # zsh extension
 eval "$(starship init zsh)"
@@ -59,5 +59,13 @@ alias g='git status'
 alias brave='./opt/brave.com/brave &'
 alias firefox='firefox &'
 
-#neofetch
+# neofetch
 alias neofetch='neofetch --ascii ~/.config/neofetch/monkey.txt'
+
+# lazygit
+alias lg='lazygit'
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+if [ -e /home/g/.nix-profile/etc/profile.d/nix.sh ]; then . /home/g/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

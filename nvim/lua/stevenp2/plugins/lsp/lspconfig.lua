@@ -13,7 +13,8 @@ M.servers = {
     "ts_ls",
     "eslint",
     "yamlls",
-    "terraformls"
+    "terraformls",
+    "bzl"
   }
 
 function M.setup()
