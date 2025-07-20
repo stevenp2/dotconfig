@@ -143,6 +143,10 @@ return lazy.setup({
     config = function() require("stevenp2.plugins.ui.scrollbar").setup() end
   }, -- scrollbar
 
+  { "b0o/incline.nvim",
+    config = function() require("stevenp2.plugins.ui.incline").setup() end
+  }, -- buffer management with multiple splits
+
   { "nvim-lualine/lualine.nvim",
     after = "folke/tokyonight",
     config = function() require("stevenp2.plugins.ui.lualine").setup() end
@@ -215,9 +219,6 @@ return lazy.setup({
 
   -- Rust
   { "simrat39/rust-tools.nvim",
-    dependencies = {
-      "neovim/nvim-lspconfig"
-    }
     ft = { "rs" },
   },
 
@@ -239,15 +240,6 @@ return lazy.setup({
   -- Treesitter
   -------------------------------
   { "nvim-treesitter/nvim-treesitter",
-    config = function() require("stevenp2.plugins.treesitter.treesitter").setup() end
-  },
-
-  "JoosepAlviste/nvim-ts-context-commentstring", -- comment string based on context
-
-  -- autopairs
-  { "windwp/nvim-autopairs",
-    config = function() require("stevenp2.plugins.treesitter.autopairs").setup() end
-  }, -- autopairing of parens, braces, etc.
     dependencies = {
       "kevinhwang91/nvim-ufo",
       "numtoStr/Comment.nvim",
@@ -267,6 +259,7 @@ return lazy.setup({
     event = "InsertEnter",
     config = function() require("stevenp2.plugins.treesitter.ufo").setup() end
   }, -- folding
+
   -------------------------------
   -- others
   -------------------------------

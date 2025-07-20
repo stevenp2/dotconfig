@@ -130,20 +130,6 @@ function M.setup()
           },
         }
       }
-    }
-  },
-  disable_netrw = true,
-  hijack_netrw = true,
-  open_on_tab = false,
-  hijack_cursor = false,
-  update_cwd = true,
-  diagnostics = {
-    enable = true,
-    icons = {
-      hint = "",
-      info = "",
-      warning = "",
-      error = "",
     },
     disable_netrw = true,
     hijack_netrw = true,
