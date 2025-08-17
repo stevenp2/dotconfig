@@ -88,3 +88,6 @@ keymap("n", "<leader>b", ":Telescope buffers initial_mode=normal sort_mru=true s
 
 -- Trouble
 keymap("n", "<leader>q", "<cmd>Trouble diagnostics toggle<CR>", opts)
+
+-- format
+keymap("n", "<leader>fm", ":=vim.lsp.buf.format()<cr><cr>", opts)

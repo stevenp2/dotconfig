@@ -136,28 +136,38 @@ function M.setup()
     end,
     padding = { left = 1 },
   }
-  
+
   local lsp_info = {
     -- Lsp server name .
     function()
       local msg = 'No Active Lsp'
-      local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-      local clients = vim.lsp.get_active_clients()
+      local buf_ft = vim.api.nvim_get_option_value('filetype', {})
+
+      local clients = vim.lsp.get_clients({ _uninitialized = false})
       if next(clients) == nil then
         return msg
       end
+
+      local lsps = {}
+      local cnt = 0
       for _, client in ipairs(clients) do
         local filetypes = client.config.filetypes
         if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-          return client.name
+          table.insert(lsps, client.name)
+          cnt = cnt + 1
         end
       end
+
+      if cnt ~= 0 then
+        return table.concat(lsps, ",")
+      end
+
       return msg
     end,
     icon = ' LSP:',
     color = { gui = 'italic' },
   }
-  
+
   local config = {
   	options = {
   		icons_enabled = true,

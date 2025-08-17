@@ -212,6 +212,17 @@ return lazy.setup({
   -- Languages
   -------------------------------
 
+  -- docgen
+  { "danymat/neogen",
+    enable = true,
+    languages = {
+      python = {
+        annotation_convention = "google_docstrings"
+      }
+    },
+    config = true
+  },
+
   -- Latex
   { "lervag/vimtex",
     ft = { "tex", "bib", },
