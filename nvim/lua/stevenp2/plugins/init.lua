@@ -99,6 +99,7 @@ return lazy.setup({
         "nvim-telescope/telescope-media-files.nvim", -- view media in telescope
       } -- Useful lua functions used ny lots of plugins
     },
+    config = function() require("stevenp2.plugins.utils.telescope").setup() end
   }, -- a fuzzy finder
 
   { "kdheepak/lazygit.nvim",
