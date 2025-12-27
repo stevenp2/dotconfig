@@ -101,7 +101,7 @@ function M.setup()
               lens = {
                 enable = true,
               },
-              checkOnSave = {
+              check = {
                 command = "clippy",
               },
             },
