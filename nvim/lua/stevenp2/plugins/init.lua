@@ -1,4 +1,3 @@
-require("stevenp2.plugins.treesitter")
 require("stevenp2.plugins.utils")
 require("stevenp2.plugins.ui")
 require("stevenp2.plugins.lsp")
@@ -185,7 +184,6 @@ return lazy.setup({
     event = "InsertEnter",
     dependencies = {
       "L3MON4D3/LuaSnip",
-      "windwp/nvim-autopairs",
       "hrsh7th/cmp-buffer", -- buffer completions
       "hrsh7th/cmp-path", -- path completions
       "hrsh7th/cmp-cmdline", -- cmdline completions
@@ -236,7 +234,6 @@ return lazy.setup({
     "ray-x/go.nvim",
     dependencies = {
       "neovim/nvim-lspconfig",
-      "nvim-treesitter/nvim-treesitter",
     },
     event = {"CmdlineEnter"},
     ft = {"go", 'gomod'},
@@ -245,27 +242,6 @@ return lazy.setup({
       require("go").setup()
     end,
   },
-  -------------------------------
-  -- Treesitter
-  -------------------------------
-  { "nvim-treesitter/nvim-treesitter",
-    dependencies = {
-      "kevinhwang91/nvim-ufo",
-    },
-    config = function() require("stevenp2.plugins.treesitter.treesitter").setup() end
-  },
-
-  { "windwp/nvim-autopairs",
-    event = "InsertEnter",
-    config = function() require("stevenp2.plugins.treesitter.autopairs").setup() end
-  }, -- autopairing of parens, braces, etc.
-
-  { 'kevinhwang91/nvim-ufo',
-    keys = { "zc", "zo", "zR", "zM" },
-    dependencies = 'kevinhwang91/promise-async',
-    event = "InsertEnter",
-    config = function() require("stevenp2.plugins.treesitter.ufo").setup() end
-  }, -- folding
 
   -------------------------------
   -- others

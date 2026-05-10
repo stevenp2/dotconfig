@@ -37,6 +37,17 @@ vim.opt.cursorline = false                      -- remove cursorline from showin
 vim.opt.showtabline = 0                         -- hide filename display at the top
 vim.opt.wrap = true                             -- wrap around buffer
 
+-- native treesitter
+vim.opt.syntax = "on"
+vim.opt.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+
+-- native folding
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldcolumn = "0"
+vim.opt.foldlevelstart = 99
+vim.opt.foldtext = ""
+
 vim.opt.shortmess:append "c"
 
 --[[ vim.cmd "highlight LineNr guifg=#797c99" ]]
