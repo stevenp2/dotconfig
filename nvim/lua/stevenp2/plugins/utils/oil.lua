@@ -27,7 +27,7 @@ function M.setup()
         return false
       end,
     },
-    experimental_watch_for_changes = true,
+    watch_for_changes = true,
     float = {
       -- Padding around the floating window
       padding = 2,

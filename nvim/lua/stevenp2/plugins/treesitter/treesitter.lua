@@ -22,7 +22,6 @@ function M.setup()
       },
       additional_vim_regex_highlighting = true,
     },
-    enable_autocmd = false,
     indent = {
       enable = true,
       disable = {

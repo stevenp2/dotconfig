@@ -87,9 +87,6 @@ return lazy.setup({
   -------------------------------
   -- utils
   -------------------------------
-  { "numtoStr/Comment.nvim",
-    config = function() require("stevenp2.plugins.utils.comment").setup() end
-  }, -- comment things easily
 
   { "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
@@ -254,8 +251,6 @@ return lazy.setup({
   { "nvim-treesitter/nvim-treesitter",
     dependencies = {
       "kevinhwang91/nvim-ufo",
-      "numtoStr/Comment.nvim",
-      "JoosepAlviste/nvim-ts-context-commentstring" -- used by comment.nvim
     },
     config = function() require("stevenp2.plugins.treesitter.treesitter").setup() end
   },
@@ -281,7 +276,6 @@ return lazy.setup({
     }
   }, -- icons used in plugins
 
-  "nvim-lua/popup.nvim", -- An implementation of the Popup API from vim in Neovim
   "moll/vim-bbye", -- allow for deletion of buffer
   "MunifTanjim/nui.nvim", -- UI component library for neovim
 
