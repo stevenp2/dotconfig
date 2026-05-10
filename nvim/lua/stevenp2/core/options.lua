@@ -41,6 +41,9 @@ vim.opt.wrap = true                             -- wrap around buffer
 vim.opt.syntax = "on"
 vim.opt.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 
+-- native live preview for rename commands
+vim.opt.inccommand = "split"
+
 -- native folding
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"

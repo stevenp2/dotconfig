@@ -100,7 +100,7 @@ function M.setup()
   end
   
   local spaces = function()
-  	return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
+  	return "spaces: " .. vim.bo.shiftwidth
   end
   
   local mode_icon = {
@@ -141,7 +141,7 @@ function M.setup()
     -- Lsp server name .
     function()
       local msg = 'No Active Lsp'
-      local buf_ft = vim.api.nvim_get_option_value('filetype', {})
+      local buf_ft = vim.bo.filetype
 
       local clients = vim.lsp.get_clients({ _uninitialized = false})
       if next(clients) == nil then

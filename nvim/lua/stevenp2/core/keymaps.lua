@@ -3,7 +3,7 @@ local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
 
 -- Shorten function name
-local keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
@@ -35,9 +35,11 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
-keymap("n", "<C-w>w", ":Bdelete<CR>", opts)
+keymap("n", "<C-w>w", function()
+  local bp = vim.api.nvim_buf_get_name(0)
+  vim.cmd("bprevious")
+  vim.cmd("bdelete " .. bp)
+end, opts)
 keymap("n", "<C-n>", "<Cmd>ene <BAR><CR>", opts)
 
 -- Insert --

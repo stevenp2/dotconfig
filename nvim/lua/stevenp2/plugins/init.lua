@@ -3,7 +3,7 @@ require("stevenp2.plugins.ui")
 require("stevenp2.plugins.lsp")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
   vim.fn.system({
     "git",
     "clone",
@@ -105,11 +105,6 @@ return lazy.setup({
     }
   }, -- running lazygit in nvim
 
-  { "axieax/urlview.nvim",
-    cmd = "UrlView",
-    config = function() require("stevenp2.plugins.utils.urlview").setup() end
-  },-- urlview - a special plugin that gets to take up a lot of space
-
   { "stevearc/oil.nvim",
     dependencies = {
       "nvim-tree/nvim-web-devicons"
@@ -118,11 +113,6 @@ return lazy.setup({
     config = function () require("stevenp2.plugins.utils.oil").setup() end,
     opts = function () require("stevenp2.plugins.utils.oil").setup() end
   }, -- file explorer (the vim way)
-
-  -- TODO
-  --[[ {"folke/which-key.nvim", ]]
-  --[[   config = function() require("stevenp2.plugins.utils.which-key").setup() end ]]
-  --[[ }, -- viewing keymap ]]
 
   -------------------------------
   -- ui
@@ -154,7 +144,6 @@ return lazy.setup({
   }, -- view degree of indentation
 
   { "stevearc/dressing.nvim",
-    dependencies = "smjonas/inc-rename.nvim",
     event = "VeryLazy",
     config = function() require("stevenp2.plugins.ui.dressing").setup() end
   }, -- wrapper around vim calls
@@ -224,11 +213,6 @@ return lazy.setup({
     ft = { "tex", "bib", },
   },
 
-  -- Rust
-  { "simrat39/rust-tools.nvim",
-    ft = { "rs" },
-  },
-
   -- go
   {
     "ray-x/go.nvim",
@@ -246,13 +230,8 @@ return lazy.setup({
   -------------------------------
   -- others
   -------------------------------
-  { "nvim-tree/nvim-web-devicons",
-    dependencies = {
-      "goolord/alpha-nvim",
-    }
-  }, -- icons used in plugins
+  { "nvim-tree/nvim-web-devicons" }, -- icons used in plugins
 
-  "moll/vim-bbye", -- allow for deletion of buffer
   "MunifTanjim/nui.nvim", -- UI component library for neovim
 
 }, lazy_config)
