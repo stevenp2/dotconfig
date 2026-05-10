@@ -71,13 +71,6 @@ function M.setup()
           },
         },
       }
-
-      vim.api.nvim_create_autocmd({"BufEnter", "CursorHold", "InsertLeave", "BufWritePost"}, {
-        pattern = "*.rs",
-        callback = function()
-          vim.lsp.codelens.refresh()
-        end,
-      })
     end
 
     vim.lsp.config(server, opts)

@@ -106,9 +106,6 @@ return lazy.setup({
   }, -- running lazygit in nvim
 
   { "stevearc/oil.nvim",
-    dependencies = {
-      "nvim-tree/nvim-web-devicons"
-    },
     cmd = "Oil",
     config = function () require("stevenp2.plugins.utils.oil").setup() end,
     opts = function () require("stevenp2.plugins.utils.oil").setup() end
@@ -230,7 +227,6 @@ return lazy.setup({
   -------------------------------
   -- others
   -------------------------------
-  { "nvim-tree/nvim-web-devicons" }, -- icons used in plugins
 
   "MunifTanjim/nui.nvim", -- UI component library for neovim
 

@@ -26,7 +26,7 @@ ls.setup({
 
 -- only insert under math mode in latex
 local math_mode = function()
-    return vim.api.nvim_command_output("echo vimtex#syntax#in_mathzone()") == '1'
+    return vim.fn['vimtex#syntax#in_mathzone']() == 1
 end
 
 local insert_to_snip = function(snip_list, ret_list)

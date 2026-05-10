@@ -51,6 +51,9 @@ vim.opt.foldcolumn = "0"
 vim.opt.foldlevelstart = 99
 vim.opt.foldtext = ""
 
+-- enable native codelens
+vim.lsp.codelens.enable(true)
+
 vim.opt.shortmess:append "c"
 
 --[[ vim.cmd "highlight LineNr guifg=#797c99" ]]
