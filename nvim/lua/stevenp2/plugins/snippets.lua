@@ -4,7 +4,7 @@ function M.setup()
   local luasnip = require("luasnip")
   luasnip.config.setup({
     enable_autosnippets = true,
-    update_events = { "TextChanged", "TextChangedI" },
+    update_events = { "TextChanged", "TextChangedI", "TextChangedP" },
   })
 
   -- use luasnip for native lsp snippets
@@ -18,11 +18,10 @@ function M.setup()
 
   vim.api.nvim_create_autocmd("ModeChanged", {
     group = vim.api.nvim_create_augroup("stevenp2-luasnip", { clear = true }),
-    pattern = "*",
+    pattern = { "i*:n", "s:n" },
     callback = function()
       local node = luasnip.session.current_nodes[vim.api.nvim_get_current_buf()]
-      local left_snippet_mode = vim.v.event.old_mode == "s" and vim.v.event.new_mode == "n"
-      if node and not luasnip.session.jump_active and (left_snippet_mode or vim.v.event.old_mode == "i") then
+      if node and not luasnip.session.jump_active then
         luasnip.unlink_current()
       end
     end,
