@@ -58,10 +58,9 @@ return {
   pyright = {
     executable = "pyright-langserver",
     config = {
-      -- ruff handles linting and import organization
+      -- ruff handles import organization
       settings = {
         pyright = { disableOrganizeImports = true },
-        python = { analysis = { ignore = { "*" } } },
       },
     },
   },

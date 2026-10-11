@@ -104,7 +104,7 @@ local function setup_attach()
   vim.api.nvim_create_autocmd("LspDetach", {
     group = group,
     callback = function(event)
-      vim.lsp.buf.clear_references()
+      vim.lsp.util.buf_clear_references(event.buf)
       vim.schedule(function()
         if not vim.api.nvim_buf_is_valid(event.buf) then return end
         local still_supported = vim.iter(vim.lsp.get_clients({ bufnr = event.buf })):any(function(client)
