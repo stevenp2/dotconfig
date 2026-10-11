@@ -32,13 +32,7 @@ map("n", "<C-Up>", "<Cmd>resize +2<CR>", "Increase window height")
 map("n", "<C-Down>", "<Cmd>resize -2<CR>", "Decrease window height")
 map("n", "<C-Left>", "<Cmd>vertical resize -2<CR>", "Decrease window width")
 map("n", "<C-Right>", "<Cmd>vertical resize +2<CR>", "Increase window width")
-map("n", "<C-w>w", function()
-  local current = vim.api.nvim_get_current_buf()
-  vim.cmd("bprevious")
-  if vim.api.nvim_buf_is_valid(current) then
-    vim.api.nvim_buf_delete(current, {})
-  end
-end, "Close buffer and go to previous")
+map("n", "<C-w>w", "<Cmd>silent confirm bdelete<CR>", "Close buffer and go to previous")
 map("n", "<C-n>", "<Cmd>enew<CR>", "New buffer")
 map("t", "<C-w>h", "<C-\\><C-n><C-w>h", "Move to left window")
 map("t", "<C-w>j", "<C-\\><C-n><C-w>j", "Move to lower window")
@@ -64,9 +58,11 @@ map("n", "]d", function()
 end, "Diagnostic: next")
 map("n", "gK", vim.diagnostic.open_float, "Diagnostic: show current line")
 map("n", "<leader>q", "<Cmd>Trouble diagnostics toggle<CR>", "Diagnostics: workspace list")
+local diagnostic_virtual_text
 map("n", "<leader>dv", function()
   local enabled = not vim.diagnostic.config().virtual_lines
-  vim.diagnostic.config({ virtual_lines = enabled, virtual_text = not enabled })
+  if enabled then diagnostic_virtual_text = vim.diagnostic.config().virtual_text end
+  vim.diagnostic.config({ virtual_lines = enabled, virtual_text = not enabled and diagnostic_virtual_text })
 end, "Diagnostics: toggle virtual lines")
 map("n", "<leader>g", open_lazygit, "Git: open Lazygit")
 local function format()
