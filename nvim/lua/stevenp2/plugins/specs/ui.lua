@@ -61,12 +61,4 @@ return {
       require("stevenp2.plugins.ui.scrollbar").setup()
     end,
   },
-  {
-    "karb94/neoscroll.nvim",
-    enabled = ui.smooth_scroll,
-    keys = { "<C-u>", "<C-d>", "<C-b>", "<C-f>", "zz" },
-    config = function()
-      require("stevenp2.plugins.ui.neoscroll").setup()
-    end,
-  },
 }

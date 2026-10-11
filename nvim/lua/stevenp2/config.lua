@@ -5,7 +5,6 @@ return {
     window_titles = true,
     indent_guides = true,
     scrollbar = true,
-    smooth_scroll = true,
   },
 
   lsp = {
