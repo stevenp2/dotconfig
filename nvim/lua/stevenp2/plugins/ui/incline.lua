@@ -1,71 +1,24 @@
 local M = {}
 
 function M.setup()
-  local incline_status_ok, incline = pcall(require, "incline")
-  if not incline_status_ok then
-    return
-  end
-  
-  incline.setup({
-    debounce_threshold = {
-      falling = 50,
-      rising = 10
-    },
-    hide = {
-      cursorline = false,
-      focused_win = false,
-      only_win = false
-    },
-    highlight = {
-      groups = {
-        InclineNormal = {
-          default = true,
-          group = "NormalFloat"
-        },
-        InclineNormalNC = {
-          default = true,
-          group = "NormalFloat"
-        }
-      }
-    },
-    ignore = {
-      buftypes = "special",
-      filetypes = {},
-      floating_wins = true,
-      unlisted_buffers = true,
-      wintypes = "special"
-    },
-    render = "basic",
+  require("incline").setup({
+    hide = { only_win = true },
     window = {
-      margin = {
-        horizontal = 1,
-        vertical = 1
-      },
-      options = {
-        signcolumn = "no",
-        wrap = false
-      },
+      margin = { horizontal = 1, vertical = 1 },
       padding = 1,
-      padding_char = " ",
-      placement = {
-        horizontal = "right",
-        vertical = "top"
-      },
-      width = "fit",
-      winhighlight = {
-        active = {
-          EndOfBuffer = "None",
-          Normal = "InclineNormal",
-          Search = "None"
-        },
-        inactive = {
-          EndOfBuffer = "None",
-          Normal = "InclineNormalNC",
-          Search = "None"
-        }
-      },
-      zindex = 50
-    }
+      placement = { horizontal = "right", vertical = "top" },
+    },
+    render = function(props)
+      local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
+      if filename == "" then
+        filename = "[No Name]"
+      end
+
+      return {
+        { filename, gui = vim.bo[props.buf].modified and "bold,italic" or "bold" },
+        vim.bo[props.buf].modified and { " ●", group = "DiagnosticWarn" } or "",
+      }
+    end,
   })
 end
 
