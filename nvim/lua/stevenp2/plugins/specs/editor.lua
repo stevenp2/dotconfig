@@ -4,14 +4,14 @@ return {
     cmd = "Telescope",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
-      require("stevenp2.plugins.telescope").setup()
+      require("stevenp2.plugins.editor.telescope").setup()
     end,
   },
   {
     "stevearc/oil.nvim",
     lazy = false,
     config = function()
-      require("stevenp2.plugins.oil").setup()
+      require("stevenp2.plugins.editor.oil").setup()
     end,
   },
   {

@@ -32,7 +32,7 @@ return {
     enabled = config.snippets.enabled,
     event = "InsertEnter",
     config = function()
-      require("stevenp2.plugins.snippets").setup()
+      require("stevenp2.plugins.languages.snippets").setup()
     end,
   },
   {
@@ -47,7 +47,7 @@ return {
       end
     end,
     config = function()
-      require("stevenp2.plugins.treesitter").setup_installer()
+      require("stevenp2.plugins.languages.treesitter").setup_installer()
     end,
   },
   {

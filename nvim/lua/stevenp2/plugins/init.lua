@@ -1,4 +1,4 @@
-require("stevenp2.plugins.treesitter").setup()
+require("stevenp2.plugins.languages.treesitter").setup()
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
