@@ -49,7 +49,7 @@ end
 function M.setup()
   vim.opt.autocomplete = false
   vim.opt.autocompletedelay = config.delay
-  vim.opt.complete = { "o", ".^20" }
+  vim.opt.complete = { ".^20", "o" }
   vim.opt.completeopt = { "menu", "menuone", "popup", "noinsert", "noselect" }
   vim.opt.pumheight = 12
   vim.opt.shortmess:append("c")
@@ -65,25 +65,9 @@ function M.setup()
   })
   vim.api.nvim_create_autocmd({ "TextChangedI", "TextChangedP" }, {
     group = group,
-    callback = function(event)
+    callback = function()
       if vim.bo.autocomplete and not can_complete(prefix()) then vim.bo.autocomplete = false end
-      if vim.bo.autocomplete
-        and #vim.lsp.get_clients({ bufnr = event.buf, method = "textDocument/completion" }) > 0 then
-        local bufnr, tick = event.buf, vim.api.nvim_buf_get_changedtick(event.buf)
-        local cursor = vim.api.nvim_win_get_cursor(0)
-        vim.defer_fn(function()
-          local menu = vim.fn.complete_info({ "selected", "mode" })
-          if vim.api.nvim_get_current_buf() == bufnr and vim.bo.autocomplete
-            and vim.api.nvim_buf_get_changedtick(bufnr) == tick
-            and vim.deep_equal(vim.api.nvim_win_get_cursor(0), cursor)
-            and menu.selected == -1
-            -- buffer words may still be waiting for native lsp completion
-            and (vim.fn.pumvisible() == 0 or menu.mode == "eval")
-            and vim.api.nvim_get_mode().mode:sub(1, 1) == "i" then
-            vim.lsp.completion.get()
-          end
-        end, config.delay)
-      end
+
     end,
   })
 

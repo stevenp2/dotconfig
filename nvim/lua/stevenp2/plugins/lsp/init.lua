@@ -79,8 +79,7 @@ local function setup_attach()
       if not client then return end
 
       if client:supports_method("textDocument/completion") then
-        -- core/completion.lua handles automatic triggering
-        vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = false })
+        vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true })
       end
 
       set_keymaps(client, event.buf)

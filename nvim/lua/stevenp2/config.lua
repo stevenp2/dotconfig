@@ -16,7 +16,7 @@ return {
 
   completion = {
     min_chars = 2,
-    delay = 150,
+    delay = 25,
   },
 
   snippets = {
