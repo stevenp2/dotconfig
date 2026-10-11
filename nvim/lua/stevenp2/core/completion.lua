@@ -2,6 +2,8 @@ local M = {}
 local config = require("stevenp2.config").completion
 local readiness_timer
 local completion_interaction
+local empty_result_retries = 0
+local retry_delays = { 100, 300, 1000 }
 
 local function can_complete(prefix)
   if vim.bo.buftype ~= "" or not vim.bo.modifiable or vim.bo.filetype == "oil" then
@@ -102,7 +104,7 @@ local function preserve_completion_intent()
   end)
 end
 
-local function retry_when_ready(bufnr, client_id)
+local function retry_when_ready(bufnr, client_id, delay)
   local client = vim.lsp.get_client_by_id(client_id)
   if bufnr ~= vim.api.nvim_get_current_buf() or not client
     or not client.attached_buffers[bufnr] or not client:supports_method("textDocument/completion")
@@ -125,10 +127,11 @@ local function retry_when_ready(bufnr, client_id)
     for _, item in ipairs(menu.matches) do
       if vim.tbl_get(item, "user_data", "nvim", "lsp") then return end
     end
+    if delay then empty_result_retries = empty_result_retries + 1 end
     -- get() cannot refresh a visible buffer-only menu
     vim.fn.complete(position.cursor[2] + 1, {})
     vim.lsp.completion.get()
-  end, config.delay)
+  end, delay or config.delay)
   readiness_timer = timer
 end
 
@@ -167,6 +170,7 @@ function M.setup()
     callback = function()
       vim.bo.autocomplete = false
       completion_interaction = nil
+      empty_result_retries = 0
       cancel_readiness_retry()
     end,
   })
@@ -199,10 +203,22 @@ function M.setup()
       vim.schedule(function() retry_when_ready(event.buf, event.data.client_id) end)
     end,
   })
+  vim.api.nvim_create_autocmd("LspRequest", {
+    group = group,
+    callback = function(event)
+      local request = event.data.request
+      local delay = retry_delays[empty_result_retries + 1]
+      -- gopls can return an empty list while discovering unimported packages
+      if delay and request.type == "complete" and request.method == "textDocument/completion" then
+        retry_when_ready(event.buf, event.data.client_id, delay)
+      end
+    end,
+  })
   vim.api.nvim_create_autocmd("InsertCharPre", {
     group = group,
     callback = function()
       completion_interaction = nil
+      empty_result_retries = 0
       vim.bo.autocomplete = can_complete(text_before_cursor() .. vim.v.char)
     end,
   })
@@ -226,6 +242,7 @@ function M.setup()
 
   vim.keymap.set("i", "<C-Space>", function()
     completion_interaction = nil
+    empty_result_retries = 0
     cancel_readiness_retry()
     vim.bo.autocomplete = can_complete(text_before_cursor())
     if #vim.lsp.get_clients({ bufnr = 0, method = "textDocument/completion" }) == 0 then
