@@ -54,6 +54,7 @@ return {
     "lervag/vimtex",
     ft = { "tex", "bib" },
     init = function()
+      vim.g.vimtex_compiler_enabled = vim.fn.executable("latexmk")
       vim.g.vimtex_imaps_enabled = 0
       vim.g.vimtex_view_automatic = 0
       vim.g.vimtex_syntax_conceal_disable = 1
